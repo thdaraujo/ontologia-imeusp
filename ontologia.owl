@@ -77,7 +77,73 @@
         <Class IRI="#Universidade"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#faz_parte"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#localizado"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#pertence_a"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#possui"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#sub_organização"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#super_organização"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#América"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Brasil"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Departamento_de_Ciência_da_Computação"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Departamento_de_Estatística"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Departamento_de_Matemática"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Departamento_de_Matemática_Aplicada"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Europa"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Instituto_de_Matemática_e_Estatística"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#LIAMF"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Oceania"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#RJ"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Rio_de_Janeiro"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SP"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#São_Paulo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Universidade_de_São_Paulo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#África"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Ásia"/>
     </Declaration>
     <SubClassOf>
         <Class IRI="#Aluno"/>
@@ -147,6 +213,169 @@
         <Class IRI="#Universidade"/>
         <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedOrganization"/>
     </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="#Continente"/>
+        <NamedIndividual IRI="#América"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#País"/>
+        <NamedIndividual IRI="#Brasil"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Departamento"/>
+        <NamedIndividual IRI="#Departamento_de_Ciência_da_Computação"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Departamento"/>
+        <NamedIndividual IRI="#Departamento_de_Estatística"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Departamento"/>
+        <NamedIndividual IRI="#Departamento_de_Matemática"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Departamento"/>
+        <NamedIndividual IRI="#Departamento_de_Matemática_Aplicada"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Continente"/>
+        <NamedIndividual IRI="#Europa"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Instituto"/>
+        <NamedIndividual IRI="#Instituto_de_Matemática_e_Estatística"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Grupo_de_Pesquisa"/>
+        <NamedIndividual IRI="#LIAMF"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Continente"/>
+        <NamedIndividual IRI="#Oceania"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Estado"/>
+        <NamedIndividual IRI="#RJ"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Cidade"/>
+        <NamedIndividual IRI="#Rio_de_Janeiro"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Estado"/>
+        <NamedIndividual IRI="#SP"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Cidade"/>
+        <NamedIndividual IRI="#São_Paulo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Universidade"/>
+        <NamedIndividual IRI="#Universidade_de_São_Paulo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Continente"/>
+        <NamedIndividual IRI="#África"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Continente"/>
+        <NamedIndividual IRI="#Ásia"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#localizado"/>
+        <NamedIndividual IRI="#Brasil"/>
+        <NamedIndividual IRI="#América"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#sub_organização"/>
+        <NamedIndividual IRI="#Departamento_de_Ciência_da_Computação"/>
+        <NamedIndividual IRI="#Instituto_de_Matemática_e_Estatística"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#sub_organização"/>
+        <NamedIndividual IRI="#Departamento_de_Estatística"/>
+        <NamedIndividual IRI="#Instituto_de_Matemática_e_Estatística"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#sub_organização"/>
+        <NamedIndividual IRI="#Departamento_de_Matemática"/>
+        <NamedIndividual IRI="#Instituto_de_Matemática_e_Estatística"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#sub_organização"/>
+        <NamedIndividual IRI="#Departamento_de_Matemática_Aplicada"/>
+        <NamedIndividual IRI="#Instituto_de_Matemática_e_Estatística"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#sub_organização"/>
+        <NamedIndividual IRI="#Instituto_de_Matemática_e_Estatística"/>
+        <NamedIndividual IRI="#Universidade_de_São_Paulo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#pertence_a"/>
+        <NamedIndividual IRI="#LIAMF"/>
+        <NamedIndividual IRI="#Departamento_de_Ciência_da_Computação"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#localizado"/>
+        <NamedIndividual IRI="#RJ"/>
+        <NamedIndividual IRI="#Brasil"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#localizado"/>
+        <NamedIndividual IRI="#Rio_de_Janeiro"/>
+        <NamedIndividual IRI="#RJ"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#localizado"/>
+        <NamedIndividual IRI="#SP"/>
+        <NamedIndividual IRI="#América"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#localizado"/>
+        <NamedIndividual IRI="#São_Paulo"/>
+        <NamedIndividual IRI="#SP"/>
+    </ObjectPropertyAssertion>
+    <EquivalentObjectProperties>
+        <ObjectProperty IRI="#faz_parte"/>
+        <ObjectProperty IRI="#sub_organização"/>
+    </EquivalentObjectProperties>
+    <EquivalentObjectProperties>
+        <ObjectProperty IRI="#possui"/>
+        <ObjectProperty IRI="#super_organização"/>
+    </EquivalentObjectProperties>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#localizado"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#possui"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#possui"/>
+        <ObjectProperty IRI="#faz_parte"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#sub_organização"/>
+        <ObjectProperty IRI="#super_organização"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#localizado"/>
+        <Class IRI="#Local"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#pertence_a"/>
+        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedOrganization"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#sub_organização"/>
+        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedOrganization"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#super_organização"/>
+        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedOrganization"/>
+    </ObjectPropertyDomain>
 </Ontology>
 
 
