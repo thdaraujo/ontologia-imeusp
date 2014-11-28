@@ -38,6 +38,9 @@
         <Class IRI="#Cidade"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Conferência"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Continente"/>
     </Declaration>
     <Declaration>
@@ -45,6 +48,9 @@
     </Declaration>
     <Declaration>
         <Class IRI="#Estado"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Evento"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Grupo_de_Pesquisa"/>
@@ -65,6 +71,12 @@
         <Class IRI="#Professor"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Revista"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Simpósio"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Tese"/>
     </Declaration>
     <Declaration>
@@ -75,6 +87,9 @@
     </Declaration>
     <Declaration>
         <Class IRI="#Universidade"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#autor"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#faz_parte"/>
@@ -166,6 +181,10 @@
         <Class IRI="#Local"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Conferência"/>
+        <Class IRI="#Evento"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Continente"/>
         <Class IRI="#Local"/>
     </SubClassOf>
@@ -176,6 +195,10 @@
     <SubClassOf>
         <Class IRI="#Estado"/>
         <Class IRI="#Local"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Evento"/>
+        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedAgent"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Grupo_de_Pesquisa"/>
@@ -196,6 +219,14 @@
     <SubClassOf>
         <Class IRI="#Professor"/>
         <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedPerson"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Revista"/>
+        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedOrganization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Simpósio"/>
+        <Class IRI="#Evento"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Tese"/>
@@ -360,6 +391,10 @@
         <ObjectProperty IRI="#sub_organização"/>
         <ObjectProperty IRI="#super_organização"/>
     </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#autor"/>
+        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedPerson"/>
+    </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#localizado"/>
         <Class IRI="#Local"/>
