@@ -47,6 +47,9 @@
         <Class IRI="#Departamento"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Documento"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Estado"/>
     </Declaration>
     <Declaration>
@@ -107,6 +110,9 @@
         <ObjectProperty IRI="#localizado"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#orienta"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#pertence_a"/>
     </Declaration>
     <Declaration>
@@ -117,6 +123,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#super_organização"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#tem_orientador"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#América"/>
@@ -161,6 +170,9 @@
         <NamedIndividual IRI="#São_Paulo"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Thiago_Araujo"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Universidade_de_São_Paulo"/>
     </Declaration>
     <Declaration>
@@ -169,6 +181,10 @@
     <Declaration>
         <NamedIndividual IRI="#Ásia"/>
     </Declaration>
+    <EquivalentClasses>
+        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedDocument"/>
+        <Class IRI="#Documento"/>
+    </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedGroup"/>
         <Class IRI="#Grupo"/>
@@ -187,7 +203,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Artigo"/>
-        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedDocument"/>
+        <Class IRI="#Documento"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Artigo_em_Conferência"/>
@@ -218,10 +234,6 @@
         <Class IRI="#Local"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Evento"/>
-        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedAgent"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Grupo"/>
         <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedAgent"/>
     </SubClassOf>
@@ -263,7 +275,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Tese"/>
-        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedDocument"/>
+        <Class IRI="#Documento"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Tese_de_Doutorado"/>
@@ -334,6 +346,10 @@
         <NamedIndividual IRI="#São_Paulo"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Aluno"/>
+        <NamedIndividual IRI="#Thiago_Araujo"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Universidade"/>
         <NamedIndividual IRI="#Universidade_de_São_Paulo"/>
     </ClassAssertion>
@@ -400,6 +416,21 @@
         <NamedIndividual IRI="#São_Paulo"/>
         <NamedIndividual IRI="#SP"/>
     </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedfirstName"/>
+        <NamedIndividual IRI="#Thiago_Araujo"/>
+        <Literal datatypeIRI="&xsd;string">Thiago</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedlastName"/>
+        <NamedIndividual IRI="#Thiago_Araujo"/>
+        <Literal datatypeIRI="&xsd;string">Araujo</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedname"/>
+        <NamedIndividual IRI="#Thiago_Araujo"/>
+        <Literal datatypeIRI="&xsd;string">Thiago Henrique Dias Araujo</Literal>
+    </DataPropertyAssertion>
     <EquivalentObjectProperties>
         <ObjectProperty IRI="#faz_parte"/>
         <ObjectProperty IRI="#sub_organização"/>
@@ -419,6 +450,10 @@
     <InverseObjectProperties>
         <ObjectProperty IRI="#faz_parte"/>
         <ObjectProperty IRI="#possui"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#orienta"/>
+        <ObjectProperty IRI="#tem_orientador"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#super_organização"/>
@@ -433,6 +468,10 @@
         <Class IRI="#Local"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#orienta"/>
+        <Class IRI="#Aluno"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#pertence_a"/>
         <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedOrganization"/>
     </ObjectPropertyDomain>
@@ -443,6 +482,10 @@
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#super_organização"/>
         <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedOrganization"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#tem_orientador"/>
+        <Class IRI="#Orientador"/>
     </ObjectPropertyDomain>
 </Ontology>
 
