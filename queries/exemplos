@@ -1,3 +1,108 @@
+############# Questões de competência #############
+
+1	Quais os alunos que publicaram na revista "XXX" junto com seu orientador?
+2	Quais professores do departamento publicaram artigos em revista junto com pelo menos um orientando?
+3	Quais artigos em revista têm como autores um professor do departamento e um (ex-)aluno de pós?
+4	Quais professores estudaram na Europa?
+5	Quais professores foram orientados por professores do IME?
+6	Quais professores são co-autores de outros professores do mesmo departamento?
+7	Quais professores publicaram artigos no ano XX?
+8	Quais artigos em revista foram publicados por professores no ano XX?
+9	Quais artigos em conferências nacionais foram publicados por professores no ano XX?
+
+
+- TODO
+*propriedades e relações:
+*autor (documento)
+*publicado (qual evento)
+*pertence (a departamento, instituto e universidade - propriedade transitiva)
+*cursou (pos, grad, etc)
+*local (conferencia, simposio, universidade)
+
+*classes:
+*cursos (grad, mestrado, doc)
+*tipos de curso
+
+
+### Pseudocódigo ###
+
+1. revista XXX
+
+SELECT 	?aluno ?orientador ?artigo ?revista
+WHERE 	?aluno autor ?artigo
+	  	?orientador autor ?artigo
+	  	?artigo publicado ?revista
+	  	?revista nome = XXX
+
+
+2. pelo menos um
+
+SELECT 	?professor ?orientando
+WHERE 	?professor orienta ?orientando
+		?professor autor ?artigo
+		?orientando autor ?artigo
+		pelo menos 1?
+
+
+3. 
+SELECT 	?artigo
+WHERE	?artigo autor ?professor
+		?professor pertence "IME"
+		?aluno cursou ?pos_graduacao
+		?aluno pertence "IME"
+
+
+4.
+SELECT ?professor
+WHERE	?professor cursou ?curso
+		?curso pertence ?universidade
+		?universidade local = Europa
+
+
+5. 
+SELECT 	?professor ?orientador
+WHERE	?professor tem_orientador ?orientador
+		?orientador pertence "IME"
+
+
+6.
+SELECT ?professor1 ?professor2 ?departamento
+WHERE	?professor autor ?artigo
+		?professor2 autor ?artigo
+		?professor1 pertence ?departamento1
+		?professor2 pertence ?departamento2
+		?departamento1 = ?departamento2
+
+
+7. ano XX
+SELECT ?professor
+WHERE ?professor autor ?artigo
+		?artigo ano = XX
+		
+
+8. 
+SELECT ?artigo
+WHERE ?artigo ano XX
+	  ?artigo subClassOf artigo_de_revista
+	  ?artigo autor ?professor
+	  ?professor pertence IME
+
+
+9. 
+SELECT ?artigo
+WHERE ?artigo ano XX	  
+	  ?artigo publicado_em ?conferencia
+	  ?conferencia local = Brasil
+	  ?artigo autor ?professor
+	  ?professor pertence IME
+
+#############################
+
+
+
+### Exemplos ###
+
+
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -14,4 +119,6 @@ SELECT ?aluno
 
 SELECT ?professor ?aluno
 	WHERE {?professor onto:orienta ?aluno }
+
+
 

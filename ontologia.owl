@@ -35,7 +35,13 @@
         <Class IRI="#Artigo_em_Revista"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Artigo_em_Simpósio"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Cidade"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Ciência_da_Computação"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Conferência"/>
@@ -44,16 +50,28 @@
         <Class IRI="#Continente"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Curso"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Departamento"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Documento"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Doutorado"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Engenharia_Elétrica"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Estado"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Evento"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Graduação"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Grupo"/>
@@ -65,7 +83,13 @@
         <Class IRI="#Instituto"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Livre_Docência"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Local"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Mestrado"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Organização"/>
@@ -83,6 +107,12 @@
         <Class IRI="#Professor"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Pós_Doutorado"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pós_Graduação"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Revista"/>
     </Declaration>
     <Declaration>
@@ -98,10 +128,19 @@
         <Class IRI="#Tese_de_Mestrado"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Tipo_de_Curso"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Universidade"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#autor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#cursado_por"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#cursou"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#faz_parte"/>
@@ -119,13 +158,28 @@
         <ObjectProperty IRI="#possui"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#possui_membros"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#publicado_em"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#publicou"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#sub_organização"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#super_organização"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#tem_autores"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#tem_orientador"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#tipo_de_curso"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#América"/>
@@ -214,8 +268,16 @@
         <Class IRI="#Artigo"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Artigo_em_Simpósio"/>
+        <Class IRI="#Artigo"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Cidade"/>
         <Class IRI="#Local"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Ciência_da_Computação"/>
+        <Class IRI="#Curso"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Conferência"/>
@@ -230,8 +292,20 @@
         <Class IRI="#Organização"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Doutorado"/>
+        <Class IRI="#Pós_Graduação"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Engenharia_Elétrica"/>
+        <Class IRI="#Curso"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Estado"/>
         <Class IRI="#Local"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Graduação"/>
+        <Class IRI="#Tipo_de_Curso"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Grupo"/>
@@ -244,6 +318,14 @@
     <SubClassOf>
         <Class IRI="#Instituto"/>
         <Class IRI="#Organização"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Livre_Docência"/>
+        <Class IRI="#Pós_Graduação"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Mestrado"/>
+        <Class IRI="#Pós_Graduação"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Organização"/>
@@ -264,6 +346,14 @@
     <SubClassOf>
         <Class IRI="#Professor"/>
         <Class IRI="#Pessoa"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pós_Doutorado"/>
+        <Class IRI="#Pós_Graduação"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pós_Graduação"/>
+        <Class IRI="#Tipo_de_Curso"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Revista"/>
@@ -432,6 +522,14 @@
         <Literal datatypeIRI="&xsd;string">Thiago Henrique Dias Araujo</Literal>
     </DataPropertyAssertion>
     <EquivalentObjectProperties>
+        <ObjectProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedbased_near"/>
+        <ObjectProperty IRI="#localizado"/>
+    </EquivalentObjectProperties>
+    <EquivalentObjectProperties>
+        <ObjectProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedpublications"/>
+        <ObjectProperty IRI="#autor"/>
+    </EquivalentObjectProperties>
+    <EquivalentObjectProperties>
         <ObjectProperty IRI="#faz_parte"/>
         <ObjectProperty IRI="#sub_organização"/>
     </EquivalentObjectProperties>
@@ -447,33 +545,104 @@
         <ObjectProperty IRI="#possui"/>
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
     </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#possui_membros"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#tem_autores"/>
+        <ObjectProperty IRI="#autor"/>
+    </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#faz_parte"/>
         <ObjectProperty IRI="#possui"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#orienta"/>
         <ObjectProperty IRI="#tem_orientador"/>
+        <ObjectProperty IRI="#orienta"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#pertence_a"/>
+        <ObjectProperty IRI="#possui_membros"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#publicou"/>
+        <ObjectProperty IRI="#publicado_em"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#super_organização"/>
         <ObjectProperty IRI="#sub_organização"/>
     </InverseObjectProperties>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#faz_parte"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#pertence_a"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#possui"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#sub_organização"/>
+    </TransitiveObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#super_organização"/>
+    </TransitiveObjectProperty>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#autor"/>
-        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedPerson"/>
+        <Class IRI="#Pessoa"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#cursado_por"/>
+        <Class IRI="#Curso"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#cursou"/>
+        <Class IRI="#Pessoa"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#faz_parte"/>
+        <Class IRI="#Pessoa"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#localizado"/>
-        <Class IRI="#Local"/>
+        <Class IRI="#Evento"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#localizado"/>
+        <Class IRI="#Organização"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#orienta"/>
-        <Class IRI="#Aluno"/>
+        <Class IRI="#Orientador"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#orienta"/>
+        <Class IRI="#Professor"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#pertence_a"/>
-        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedOrganization"/>
+        <Class IRI="#Pessoa"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#possui"/>
+        <Class IRI="#Organização"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#possui_membros"/>
+        <Class IRI="#Departamento"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#publicado_em"/>
+        <Class IRI="#Artigo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#publicou"/>
+        <Class IRI="#Evento"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#publicou"/>
+        <Class IRI="#Revista"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#sub_organização"/>
@@ -484,9 +653,89 @@
         <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedOrganization"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#tem_autores"/>
+        <Class IRI="#Documento"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#tem_orientador"/>
+        <Class IRI="#Aluno"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#tipo_de_curso"/>
+        <Class IRI="#Curso"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#autor"/>
+        <Class IRI="#Documento"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#cursado_por"/>
+        <Class IRI="#Pessoa"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#cursou"/>
+        <Class IRI="#Curso"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#faz_parte"/>
+        <Class IRI="#Organização"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#localizado"/>
+        <Class IRI="#Local"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#orienta"/>
+        <Class IRI="#Aluno"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#pertence_a"/>
+        <Class IRI="#Departamento"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#possui"/>
+        <Class IRI="#Pessoa"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#possui_membros"/>
+        <Class IRI="#Pessoa"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#publicado_em"/>
+        <Class IRI="#Evento"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#publicado_em"/>
+        <Class IRI="#Revista"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#publicou"/>
+        <Class IRI="#Artigo"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#sub_organização"/>
+        <Class IRI="#Organização"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#super_organização"/>
+        <Class IRI="#Organização"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#tem_autores"/>
+        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedPerson"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#tem_orientador"/>
         <Class IRI="#Orientador"/>
-    </ObjectPropertyDomain>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#tem_orientador"/>
+        <Class IRI="#Professor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#tipo_de_curso"/>
+        <Class IRI="#Tipo_de_Curso"/>
+    </ObjectPropertyRange>
 </Ontology>
 
 
