@@ -53,6 +53,9 @@
         <Class IRI="#Evento"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Grupo"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Grupo_de_Pesquisa"/>
     </Declaration>
     <Declaration>
@@ -62,10 +65,16 @@
         <Class IRI="#Local"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Organização"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Orientador"/>
     </Declaration>
     <Declaration>
         <Class IRI="#País"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Pessoa"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Professor"/>
@@ -160,9 +169,21 @@
     <Declaration>
         <NamedIndividual IRI="#Ásia"/>
     </Declaration>
+    <EquivalentClasses>
+        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedGroup"/>
+        <Class IRI="#Grupo"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedOrganization"/>
+        <Class IRI="#Organização"/>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedPerson"/>
+        <Class IRI="#Pessoa"/>
+    </EquivalentClasses>
     <SubClassOf>
         <Class IRI="#Aluno"/>
-        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedPerson"/>
+        <Class IRI="#Pessoa"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Artigo"/>
@@ -190,7 +211,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Departamento"/>
-        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedOrganization"/>
+        <Class IRI="#Organização"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Estado"/>
@@ -201,28 +222,40 @@
         <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedAgent"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Grupo"/>
+        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedAgent"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Grupo_de_Pesquisa"/>
-        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedGroup"/>
+        <Class IRI="#Grupo"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Instituto"/>
-        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedOrganization"/>
+        <Class IRI="#Organização"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Organização"/>
+        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedAgent"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Orientador"/>
-        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedPerson"/>
+        <Class IRI="#Pessoa"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#País"/>
         <Class IRI="#Local"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Pessoa"/>
+        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedAgent"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Professor"/>
-        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedPerson"/>
+        <Class IRI="#Pessoa"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Revista"/>
-        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedOrganization"/>
+        <Class IRI="#Organização"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Simpósio"/>
@@ -242,7 +275,7 @@
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Universidade"/>
-        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedOrganization"/>
+        <Class IRI="#Organização"/>
     </SubClassOf>
     <ClassAssertion>
         <Class IRI="#Continente"/>
@@ -384,12 +417,12 @@
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
     </SubObjectPropertyOf>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#possui"/>
         <ObjectProperty IRI="#faz_parte"/>
+        <ObjectProperty IRI="#possui"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#sub_organização"/>
         <ObjectProperty IRI="#super_organização"/>
+        <ObjectProperty IRI="#sub_organização"/>
     </InverseObjectProperties>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#autor"/>
