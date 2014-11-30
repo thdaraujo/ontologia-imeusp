@@ -29,15 +29,6 @@
         <Class IRI="#Artigo"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Artigo_em_Conferência"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Artigo_em_Revista"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Artigo_em_Simpósio"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Cidade"/>
     </Declaration>
     <Declaration>
@@ -137,6 +128,9 @@
         <ObjectProperty IRI="#cursou"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#estudou_em"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#faz_parte"/>
     </Declaration>
     <Declaration>
@@ -176,6 +170,15 @@
         <ObjectProperty IRI="#tipo_de_curso"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#trabalhou_em"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#ano"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nome"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#América"/>
     </Declaration>
     <Declaration>
@@ -203,6 +206,9 @@
         <NamedIndividual IRI="#Europa"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#França"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Guilherme_Rey"/>
     </Declaration>
     <Declaration>
@@ -224,6 +230,9 @@
         <NamedIndividual IRI="#Oceania"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Paris"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#RJ"/>
     </Declaration>
     <Declaration>
@@ -233,10 +242,43 @@
         <NamedIndividual IRI="#Rio_de_Janeiro"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Roberto_Hirata"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#SP"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#São_Paulo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Teste_Artigo_Apenas_do_Orientador"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Teste_Artigo_Conferencia_Paris"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Teste_Artigo_Conferência_Sao_Paulo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Teste_Artigo_Revista_Brasil"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Teste_Artigo_Revista_Europa"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Teste_Conferência_de_IA_Europa"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Teste_Conferência_de_IA_Sao_Paulo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Teste_Conferência_de_Visao_na_Europa"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Teste_Revista_de_Visao_no_Brasil"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Teste_Revista_de_Visão_na_Europa"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Thiago_Araujo"/>
@@ -250,6 +292,9 @@
     <Declaration>
         <NamedIndividual IRI="#Ásia"/>
     </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Île-de-France"/>
+    </Declaration>
     <EquivalentClasses>
         <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedDocument"/>
         <Class IRI="#Documento"/>
@@ -257,10 +302,6 @@
     <EquivalentClasses>
         <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedGroup"/>
         <Class IRI="#Grupo"/>
-    </EquivalentClasses>
-    <EquivalentClasses>
-        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedOrganization"/>
-        <Class IRI="#Organização"/>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedPerson"/>
@@ -273,18 +314,6 @@
     <SubClassOf>
         <Class IRI="#Artigo"/>
         <Class IRI="#Documento"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Artigo_em_Conferência"/>
-        <Class IRI="#Artigo"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Artigo_em_Revista"/>
-        <Class IRI="#Artigo"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Artigo_em_Simpósio"/>
-        <Class IRI="#Artigo"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Cidade"/>
@@ -423,6 +452,10 @@
         <NamedIndividual IRI="#Europa"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#País"/>
+        <NamedIndividual IRI="#França"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Aluno"/>
         <NamedIndividual IRI="#Guilherme_Rey"/>
     </ClassAssertion>
@@ -451,6 +484,10 @@
         <NamedIndividual IRI="#Oceania"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Cidade"/>
+        <NamedIndividual IRI="#Paris"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Estado"/>
         <NamedIndividual IRI="#RJ"/>
     </ClassAssertion>
@@ -463,12 +500,56 @@
         <NamedIndividual IRI="#Rio_de_Janeiro"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Professor"/>
+        <NamedIndividual IRI="#Roberto_Hirata"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Estado"/>
         <NamedIndividual IRI="#SP"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Cidade"/>
         <NamedIndividual IRI="#São_Paulo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Artigo"/>
+        <NamedIndividual IRI="#Teste_Artigo_Apenas_do_Orientador"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Artigo"/>
+        <NamedIndividual IRI="#Teste_Artigo_Conferencia_Paris"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Artigo"/>
+        <NamedIndividual IRI="#Teste_Artigo_Conferência_Sao_Paulo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Artigo"/>
+        <NamedIndividual IRI="#Teste_Artigo_Revista_Brasil"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Artigo"/>
+        <NamedIndividual IRI="#Teste_Artigo_Revista_Europa"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Conferência"/>
+        <NamedIndividual IRI="#Teste_Conferência_de_IA_Europa"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Conferência"/>
+        <NamedIndividual IRI="#Teste_Conferência_de_IA_Sao_Paulo"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Conferência"/>
+        <NamedIndividual IRI="#Teste_Conferência_de_Visao_na_Europa"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Revista"/>
+        <NamedIndividual IRI="#Teste_Revista_de_Visao_no_Brasil"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Revista"/>
+        <NamedIndividual IRI="#Teste_Revista_de_Visão_na_Europa"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Aluno"/>
@@ -485,6 +566,10 @@
     <ClassAssertion>
         <Class IRI="#Continente"/>
         <NamedIndividual IRI="#Ásia"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Estado"/>
+        <NamedIndividual IRI="#Île-de-France"/>
     </ClassAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#localizado"/>
@@ -512,9 +597,29 @@
         <NamedIndividual IRI="#Instituto_de_Matemática_e_Estatística"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#localizado"/>
+        <NamedIndividual IRI="#França"/>
+        <NamedIndividual IRI="#Europa"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#autor"/>
+        <NamedIndividual IRI="#Guilherme_Rey"/>
+        <NamedIndividual IRI="#Teste_Artigo_Revista_Brasil"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#autor"/>
+        <NamedIndividual IRI="#Guilherme_Rey"/>
+        <NamedIndividual IRI="#Teste_Artigo_Revista_Europa"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#cursou"/>
         <NamedIndividual IRI="#Guilherme_Rey"/>
         <NamedIndividual IRI="#Ciência_da_Computação"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#tem_orientador"/>
+        <NamedIndividual IRI="#Guilherme_Rey"/>
+        <NamedIndividual IRI="#Roberto_Hirata"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#sub_organização"/>
@@ -524,7 +629,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#membros"/>
         <NamedIndividual IRI="#LIAMF"/>
-        <NamedIndividual IRI="#Leliane_Barros"/>
+        <NamedIndividual IRI="#Thiago_Araujo"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#membros"/>
@@ -534,7 +639,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#membros"/>
         <NamedIndividual IRI="#LIAMF"/>
-        <NamedIndividual IRI="#Thiago_Araujo"/>
+        <NamedIndividual IRI="#Leliane_Barros"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#localizado"/>
+        <NamedIndividual IRI="#Paris"/>
+        <NamedIndividual IRI="#Île-de-France"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#localizado"/>
@@ -542,9 +652,44 @@
         <NamedIndividual IRI="#Brasil"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#autor"/>
+        <NamedIndividual IRI="#Renata_Wassermann"/>
+        <NamedIndividual IRI="#Teste_Artigo_Conferencia_Paris"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#autor"/>
+        <NamedIndividual IRI="#Renata_Wassermann"/>
+        <NamedIndividual IRI="#Teste_Artigo_Conferência_Sao_Paulo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#trabalhou_em"/>
+        <NamedIndividual IRI="#Renata_Wassermann"/>
+        <NamedIndividual IRI="#Departamento_de_Ciência_da_Computação"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#localizado"/>
         <NamedIndividual IRI="#Rio_de_Janeiro"/>
         <NamedIndividual IRI="#RJ"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#autor"/>
+        <NamedIndividual IRI="#Roberto_Hirata"/>
+        <NamedIndividual IRI="#Teste_Artigo_Revista_Brasil"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#autor"/>
+        <NamedIndividual IRI="#Roberto_Hirata"/>
+        <NamedIndividual IRI="#Teste_Artigo_Revista_Europa"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#orienta"/>
+        <NamedIndividual IRI="#Roberto_Hirata"/>
+        <NamedIndividual IRI="#Guilherme_Rey"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#trabalhou_em"/>
+        <NamedIndividual IRI="#Roberto_Hirata"/>
+        <NamedIndividual IRI="#Departamento_de_Ciência_da_Computação"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#localizado"/>
@@ -557,6 +702,106 @@
         <NamedIndividual IRI="#SP"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#tem_autores"/>
+        <NamedIndividual IRI="#Teste_Artigo_Apenas_do_Orientador"/>
+        <NamedIndividual IRI="#Renata_Wassermann"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#autor"/>
+        <NamedIndividual IRI="#Teste_Artigo_Conferencia_Paris"/>
+        <NamedIndividual IRI="#Renata_Wassermann"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#autor"/>
+        <NamedIndividual IRI="#Teste_Artigo_Conferencia_Paris"/>
+        <NamedIndividual IRI="#Thiago_Araujo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#publicado_em"/>
+        <NamedIndividual IRI="#Teste_Artigo_Conferencia_Paris"/>
+        <NamedIndividual IRI="#Teste_Conferência_de_IA_Europa"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#autor"/>
+        <NamedIndividual IRI="#Teste_Artigo_Conferência_Sao_Paulo"/>
+        <NamedIndividual IRI="#Thiago_Araujo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#autor"/>
+        <NamedIndividual IRI="#Teste_Artigo_Conferência_Sao_Paulo"/>
+        <NamedIndividual IRI="#Leliane_Barros"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#publicado_em"/>
+        <NamedIndividual IRI="#Teste_Artigo_Conferência_Sao_Paulo"/>
+        <NamedIndividual IRI="#Teste_Conferência_de_IA_Sao_Paulo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#autor"/>
+        <NamedIndividual IRI="#Teste_Artigo_Revista_Brasil"/>
+        <NamedIndividual IRI="#Guilherme_Rey"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#autor"/>
+        <NamedIndividual IRI="#Teste_Artigo_Revista_Brasil"/>
+        <NamedIndividual IRI="#Roberto_Hirata"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#publicado_em"/>
+        <NamedIndividual IRI="#Teste_Artigo_Revista_Brasil"/>
+        <NamedIndividual IRI="#Teste_Revista_de_Visao_no_Brasil"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#autor"/>
+        <NamedIndividual IRI="#Teste_Artigo_Revista_Europa"/>
+        <NamedIndividual IRI="#Roberto_Hirata"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#autor"/>
+        <NamedIndividual IRI="#Teste_Artigo_Revista_Europa"/>
+        <NamedIndividual IRI="#Guilherme_Rey"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#publicado_em"/>
+        <NamedIndividual IRI="#Teste_Artigo_Revista_Europa"/>
+        <NamedIndividual IRI="#Teste_Revista_de_Visão_na_Europa"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#localizado"/>
+        <NamedIndividual IRI="#Teste_Conferência_de_IA_Europa"/>
+        <NamedIndividual IRI="#Paris"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#localizado"/>
+        <NamedIndividual IRI="#Teste_Conferência_de_IA_Sao_Paulo"/>
+        <NamedIndividual IRI="#São_Paulo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#localizado"/>
+        <NamedIndividual IRI="#Teste_Conferência_de_Visao_na_Europa"/>
+        <NamedIndividual IRI="#Paris"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#localizado"/>
+        <NamedIndividual IRI="#Teste_Revista_de_Visao_no_Brasil"/>
+        <NamedIndividual IRI="#Rio_de_Janeiro"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#localizado"/>
+        <NamedIndividual IRI="#Teste_Revista_de_Visão_na_Europa"/>
+        <NamedIndividual IRI="#Paris"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#autor"/>
+        <NamedIndividual IRI="#Thiago_Araujo"/>
+        <NamedIndividual IRI="#Teste_Artigo_Conferência_Sao_Paulo"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#autor"/>
+        <NamedIndividual IRI="#Thiago_Araujo"/>
+        <NamedIndividual IRI="#Teste_Artigo_Conferencia_Paris"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#cursou"/>
         <NamedIndividual IRI="#Thiago_Araujo"/>
         <NamedIndividual IRI="#Ciência_da_Computação"/>
@@ -566,6 +811,21 @@
         <NamedIndividual IRI="#Thiago_Araujo"/>
         <NamedIndividual IRI="#Renata_Wassermann"/>
     </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#localizado"/>
+        <NamedIndividual IRI="#Île-de-France"/>
+        <NamedIndividual IRI="#França"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedfirstName"/>
+        <NamedIndividual IRI="#Guilherme_Rey"/>
+        <Literal datatypeIRI="&xsd;string">Guilherme</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedlastName"/>
+        <NamedIndividual IRI="#Guilherme_Rey"/>
+        <Literal datatypeIRI="&xsd;string">Rey</Literal>
+    </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedfirstName"/>
         <NamedIndividual IRI="#Leliane_Barros"/>
@@ -588,6 +848,96 @@
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedfirstName"/>
+        <NamedIndividual IRI="#Roberto_Hirata"/>
+        <Literal datatypeIRI="&xsd;string">Roberto</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedlastName"/>
+        <NamedIndividual IRI="#Roberto_Hirata"/>
+        <Literal datatypeIRI="&xsd;string">Hirata</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedname"/>
+        <NamedIndividual IRI="#Teste_Artigo_Conferencia_Paris"/>
+        <Literal datatypeIRI="&xsd;string">[Teste] Artigo sobre IA em uma conferência de Paris</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ano"/>
+        <NamedIndividual IRI="#Teste_Artigo_Conferencia_Paris"/>
+        <Literal datatypeIRI="&xsd;integer">2014</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedname"/>
+        <NamedIndividual IRI="#Teste_Artigo_Conferência_Sao_Paulo"/>
+        <Literal datatypeIRI="&xsd;string">[Teste] Artigo de IA em uma conferência no Brasil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ano"/>
+        <NamedIndividual IRI="#Teste_Artigo_Conferência_Sao_Paulo"/>
+        <Literal datatypeIRI="&xsd;integer">2013</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedname"/>
+        <NamedIndividual IRI="#Teste_Artigo_Revista_Brasil"/>
+        <Literal datatypeIRI="&xsd;string">[Teste] Artigo sobre Visao Computacional publicado em revista brasileira</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ano"/>
+        <NamedIndividual IRI="#Teste_Artigo_Revista_Brasil"/>
+        <Literal datatypeIRI="&xsd;integer">2013</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedname"/>
+        <NamedIndividual IRI="#Teste_Artigo_Revista_Europa"/>
+        <Literal datatypeIRI="&xsd;string">[Teste] Artigo de visão publicado em revista na europa</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ano"/>
+        <NamedIndividual IRI="#Teste_Artigo_Revista_Europa"/>
+        <Literal datatypeIRI="&xsd;integer">2013</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedname"/>
+        <NamedIndividual IRI="#Teste_Conferência_de_IA_Europa"/>
+        <Literal datatypeIRI="&xsd;string">[Teste] Conferência de IA na Europa, Paris</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ano"/>
+        <NamedIndividual IRI="#Teste_Conferência_de_IA_Europa"/>
+        <Literal datatypeIRI="&xsd;integer">2014</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedname"/>
+        <NamedIndividual IRI="#Teste_Conferência_de_IA_Sao_Paulo"/>
+        <Literal datatypeIRI="&xsd;string">[Teste] Conferência de IA em Sâo Paulo</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ano"/>
+        <NamedIndividual IRI="#Teste_Conferência_de_IA_Sao_Paulo"/>
+        <Literal datatypeIRI="&xsd;integer">2013</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedname"/>
+        <NamedIndividual IRI="#Teste_Conferência_de_Visao_na_Europa"/>
+        <Literal datatypeIRI="&xsd;string">[Teste] Conferência de Visão Computacional na Europa</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#ano"/>
+        <NamedIndividual IRI="#Teste_Conferência_de_Visao_na_Europa"/>
+        <Literal datatypeIRI="&xsd;integer">2012</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedname"/>
+        <NamedIndividual IRI="#Teste_Revista_de_Visao_no_Brasil"/>
+        <Literal datatypeIRI="&xsd;string">[Teste] Revista de Visão do Rio de Janeiro</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedname"/>
+        <NamedIndividual IRI="#Teste_Revista_de_Visão_na_Europa"/>
+        <Literal datatypeIRI="&xsd;string">[Teste] Revista de IA de Paris</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedfirstName"/>
         <NamedIndividual IRI="#Thiago_Araujo"/>
         <Literal datatypeIRI="&xsd;string">Thiago</Literal>
     </DataPropertyAssertion>
@@ -603,10 +953,6 @@
     <EquivalentObjectProperties>
         <ObjectProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedmember"/>
         <ObjectProperty IRI="#membros"/>
-    </EquivalentObjectProperties>
-    <EquivalentObjectProperties>
-        <ObjectProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedpublications"/>
-        <ObjectProperty IRI="#autor"/>
     </EquivalentObjectProperties>
     <EquivalentObjectProperties>
         <ObjectProperty IRI="#faz_parte"/>
@@ -674,6 +1020,10 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#cursou"/>
+        <Class IRI="#Pessoa"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#estudou_em"/>
         <Class IRI="#Pessoa"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
@@ -740,6 +1090,10 @@
         <ObjectProperty IRI="#tipo_de_curso"/>
         <Class IRI="#Curso"/>
     </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#trabalhou_em"/>
+        <Class IRI="#Pessoa"/>
+    </ObjectPropertyDomain>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#autor"/>
         <Class IRI="#Documento"/>
@@ -751,6 +1105,10 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="#cursou"/>
         <Class IRI="#Curso"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#estudou_em"/>
+        <Class IRI="#Organização"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#faz_parte"/>
@@ -798,7 +1156,7 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#tem_autores"/>
-        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedPerson"/>
+        <Class IRI="#Pessoa"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#tem_orientador"/>
@@ -812,6 +1170,34 @@
         <ObjectProperty IRI="#tipo_de_curso"/>
         <Class IRI="#Tipo_de_Curso"/>
     </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#trabalhou_em"/>
+        <Class IRI="#Organização"/>
+    </ObjectPropertyRange>
+    <EquivalentDataProperties>
+        <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedname"/>
+        <DataProperty IRI="#nome"/>
+    </EquivalentDataProperties>
+    <DataPropertyDomain>
+        <DataProperty IRI="#ano"/>
+        <Class IRI="#Documento"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#ano"/>
+        <Class IRI="#Evento"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#nome"/>
+        <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedAgent"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#ano"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#nome"/>
+        <Datatype abbreviatedIRI="xsd:Name"/>
+    </DataPropertyRange>
 </Ontology>
 
 

@@ -11,28 +11,25 @@
 9	Quais artigos em conferências nacionais foram publicados por professores no ano XX?
 
 
-- TODO
-*propriedades e relações:
-*autor (documento)
-*publicado (qual evento)
-*pertence (a departamento, instituto e universidade - propriedade transitiva)
-*cursou (pos, grad, etc)
-*local (conferencia, simposio, universidade)
-
-*classes:
-*cursos (grad, mestrado, doc)
-*tipos de curso
-
-
-### Pseudocódigo ###
+### ódigo ###
 
 1. revista XXX
 
 SELECT 	?aluno ?orientador ?artigo ?revista
-WHERE 	?aluno autor ?artigo
-	  	?orientador autor ?artigo
-	  	?artigo publicado ?revista
-	  	?revista nome = XXX
+WHERE
+{ 
+	?aluno a onto:Aluno.
+	?aluno onto:autor ?artigo.
+	?orientador onto:autor ?artigo.
+	?aluno onto:tem_orientador ?orientador.
+	?artigo onto:publicado_em ?revista.
+}
+
+TODO: falta o filtro por nome da revista
+
+
+
+
 
 
 2. pelo menos um
@@ -72,12 +69,18 @@ WHERE	?professor autor ?artigo
 		?professor1 pertence ?departamento1
 		?professor2 pertence ?departamento2
 		?departamento1 = ?departamento2
+		
 
+7. OK!
 
-7. ano XX
-SELECT ?professor
-WHERE ?professor autor ?artigo
-		?artigo ano = XX
+SELECT 	?professor ?artigo
+WHERE
+{ 
+	?professor a onto:Professor.
+	?artigo a onto:Artigo.
+	?professor onto:autor ?artigo.
+	?artigo onto:ano 2014
+}
 		
 
 8. 
@@ -120,5 +123,6 @@ SELECT ?aluno
 SELECT ?professor ?aluno
 	WHERE {?professor onto:orienta ?aluno }
 
-
+SELECT ?pessoa
+WHERE { ?pessoa onto:nome "Renata Wassermann"^^xsd:Name  }
 
