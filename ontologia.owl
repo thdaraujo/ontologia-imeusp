@@ -149,16 +149,16 @@
         <ObjectProperty IRI="#localizado"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#membro_de"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#membros"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#orienta"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#pertence_a"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="#possui"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#possui_membros"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#publicado_em"/>
@@ -209,10 +209,16 @@
         <NamedIndividual IRI="#LIAMF"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Leliane_Barros"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#Oceania"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#RJ"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Renata_Wassermann"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Rio_de_Janeiro"/>
@@ -416,12 +422,20 @@
         <NamedIndividual IRI="#LIAMF"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Professor"/>
+        <NamedIndividual IRI="#Leliane_Barros"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Continente"/>
         <NamedIndividual IRI="#Oceania"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Estado"/>
         <NamedIndividual IRI="#RJ"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Professor"/>
+        <NamedIndividual IRI="#Renata_Wassermann"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Cidade"/>
@@ -482,9 +496,19 @@
         <NamedIndividual IRI="#Universidade_de_São_Paulo"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#pertence_a"/>
+        <ObjectProperty IRI="#membros"/>
         <NamedIndividual IRI="#LIAMF"/>
-        <NamedIndividual IRI="#Departamento_de_Ciência_da_Computação"/>
+        <NamedIndividual IRI="#Leliane_Barros"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#membros"/>
+        <NamedIndividual IRI="#LIAMF"/>
+        <NamedIndividual IRI="#Renata_Wassermann"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#membros"/>
+        <NamedIndividual IRI="#LIAMF"/>
+        <NamedIndividual IRI="#Thiago_Araujo"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#localizado"/>
@@ -506,6 +530,31 @@
         <NamedIndividual IRI="#São_Paulo"/>
         <NamedIndividual IRI="#SP"/>
     </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#tem_orientador"/>
+        <NamedIndividual IRI="#Thiago_Araujo"/>
+        <NamedIndividual IRI="#Renata_Wassermann"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedfirstName"/>
+        <NamedIndividual IRI="#Leliane_Barros"/>
+        <Literal datatypeIRI="&xsd;string">Leliane</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedlastName"/>
+        <NamedIndividual IRI="#Leliane_Barros"/>
+        <Literal datatypeIRI="&xsd;string">Barros</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedfirstName"/>
+        <NamedIndividual IRI="#Renata_Wassermann"/>
+        <Literal datatypeIRI="&xsd;string">Renata</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedlastName"/>
+        <NamedIndividual IRI="#Renata_Wassermann"/>
+        <Literal datatypeIRI="&xsd;string">Wassermann</Literal>
+    </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedfirstName"/>
         <NamedIndividual IRI="#Thiago_Araujo"/>
@@ -516,14 +565,13 @@
         <NamedIndividual IRI="#Thiago_Araujo"/>
         <Literal datatypeIRI="&xsd;string">Araujo</Literal>
     </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedname"/>
-        <NamedIndividual IRI="#Thiago_Araujo"/>
-        <Literal datatypeIRI="&xsd;string">Thiago Henrique Dias Araujo</Literal>
-    </DataPropertyAssertion>
     <EquivalentObjectProperties>
         <ObjectProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedbased_near"/>
         <ObjectProperty IRI="#localizado"/>
+    </EquivalentObjectProperties>
+    <EquivalentObjectProperties>
+        <ObjectProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedmember"/>
+        <ObjectProperty IRI="#membros"/>
     </EquivalentObjectProperties>
     <EquivalentObjectProperties>
         <ObjectProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedpublications"/>
@@ -545,29 +593,25 @@
         <ObjectProperty IRI="#possui"/>
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
     </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#possui_membros"/>
-        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
-    </SubObjectPropertyOf>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#tem_autores"/>
         <ObjectProperty IRI="#autor"/>
+        <ObjectProperty IRI="#tem_autores"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#faz_parte"/>
         <ObjectProperty IRI="#possui"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
+        <ObjectProperty IRI="#membro_de"/>
+        <ObjectProperty IRI="#membro_de"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
         <ObjectProperty IRI="#tem_orientador"/>
         <ObjectProperty IRI="#orienta"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#pertence_a"/>
-        <ObjectProperty IRI="#possui_membros"/>
-    </InverseObjectProperties>
-    <InverseObjectProperties>
-        <ObjectProperty IRI="#publicou"/>
         <ObjectProperty IRI="#publicado_em"/>
+        <ObjectProperty IRI="#publicou"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#super_organização"/>
@@ -575,9 +619,6 @@
     </InverseObjectProperties>
     <TransitiveObjectProperty>
         <ObjectProperty IRI="#faz_parte"/>
-    </TransitiveObjectProperty>
-    <TransitiveObjectProperty>
-        <ObjectProperty IRI="#pertence_a"/>
     </TransitiveObjectProperty>
     <TransitiveObjectProperty>
         <ObjectProperty IRI="#possui"/>
@@ -602,7 +643,7 @@
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#faz_parte"/>
-        <Class IRI="#Pessoa"/>
+        <Class IRI="#Organização"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#localizado"/>
@@ -613,6 +654,14 @@
         <Class IRI="#Organização"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#membro_de"/>
+        <Class IRI="#Pessoa"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#membros"/>
+        <Class IRI="#Grupo"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#orienta"/>
         <Class IRI="#Orientador"/>
     </ObjectPropertyDomain>
@@ -621,16 +670,8 @@
         <Class IRI="#Professor"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
-        <ObjectProperty IRI="#pertence_a"/>
-        <Class IRI="#Pessoa"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
         <ObjectProperty IRI="#possui"/>
         <Class IRI="#Organização"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#possui_membros"/>
-        <Class IRI="#Departamento"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#publicado_em"/>
@@ -685,20 +726,20 @@
         <Class IRI="#Local"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#membro_de"/>
+        <Class IRI="#Grupo"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#membros"/>
+        <Class IRI="#Pessoa"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#orienta"/>
         <Class IRI="#Aluno"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#pertence_a"/>
-        <Class IRI="#Departamento"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
         <ObjectProperty IRI="#possui"/>
-        <Class IRI="#Pessoa"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#possui_membros"/>
-        <Class IRI="#Pessoa"/>
+        <Class IRI="#Organização"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#publicado_em"/>
