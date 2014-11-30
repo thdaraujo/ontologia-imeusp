@@ -69,7 +69,7 @@ WHERE	?professor autor ?artigo
 		?professor1 pertence ?departamento1
 		?professor2 pertence ?departamento2
 		?departamento1 = ?departamento2
-		
+
 
 7. OK!
 
@@ -123,6 +123,9 @@ SELECT ?aluno
 SELECT ?professor ?aluno
 	WHERE {?professor onto:orienta ?aluno }
 
-SELECT ?pessoa
-WHERE { ?pessoa onto:nome "Renata Wassermann"^^xsd:Name  }
 
+SELECT 	?professor
+WHERE
+{ 
+	?professor onto:primeiro_nome "Renata"^^xsd:string
+}
