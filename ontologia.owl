@@ -44,9 +44,6 @@
         <Class IRI="#Documento"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Estado"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Evento"/>
     </Declaration>
     <Declaration>
@@ -310,10 +307,6 @@
         <Class IRI="#Organizacao"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Estado"/>
-        <Class IRI="#Local"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Grupo"/>
         <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedAgent"/>
     </SubClassOf>
@@ -426,20 +419,12 @@
         <NamedIndividual IRI="#Oceania"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Estado"/>
-        <NamedIndividual IRI="#RJ"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Professor"/>
         <NamedIndividual IRI="#Renata_Wassermann"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Professor"/>
         <NamedIndividual IRI="#Roberto_Hirata"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Estado"/>
-        <NamedIndividual IRI="#SP"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Artigo"/>
@@ -500,10 +485,6 @@
     <ClassAssertion>
         <Class IRI="#Continente"/>
         <NamedIndividual IRI="#Ásia"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Estado"/>
-        <NamedIndividual IRI="#Île-de-France"/>
     </ClassAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#localizado"/>
