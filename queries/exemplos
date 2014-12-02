@@ -1,19 +1,19 @@
 ############# Questões de competência #############
 
 #1	Quais os alunos que publicaram na revista "XXX" junto com seu orientador?
-2	Quais professores do departamento publicaram artigos em revista junto com pelo menos um orientando?
+#2	Quais professores do departamento publicaram artigos em revista junto com pelo menos um orientando?
 3	Quais artigos em revista têm como autores um professor do departamento e um (ex-)aluno de pós?
-4	Quais professores estudaram na Europa?
+#4	Quais professores estudaram na Europa?
 #5	Quais professores foram orientados por professores do IME?
-6	Quais professores são co-autores de outros professores do mesmo departamento?
+#6	Quais professores são co-autores de outros professores do mesmo departamento?
 #7	Quais professores publicaram artigos no ano XX?
 #8	Quais artigos em revista foram publicados por professores no ano XX?
-9	Quais artigos em conferências nacionais foram publicados por professores no ano XX?
+#9	Quais artigos em conferências nacionais foram publicados por professores no ano XX?
 
 
 ### código ###
 
-1. revista XXX
+1. 
 
 
 SELECT 	?aluno ?orientador ?artigo ?revista
@@ -27,18 +27,22 @@ WHERE
 	?revista onto:titulo "[Teste] Revista de Visão do Rio de Janeiro"^^xsd:string
 }
 
-TODO: falta o filtro por nome da revista
 
 
 
 
-2. pelo menos um
+2. artigos em revista com pelo menos 1 orientando
 
-SELECT 	?professor ?orientando
-WHERE 	?professor orienta ?orientando
-		?professor autor ?artigo
-		?orientando autor ?artigo
-		pelo menos 1?
+SELECT 	DISTINCT ?professor
+WHERE
+{ 
+	?aluno a onto:Aluno.
+	?professor a onto:Professor.
+	?revista a onto:Revista.
+	?aluno onto:autor ?artigo.
+	?professor onto:autor ?artigo.
+	?orientador onto:orienta ?aluno.
+	?artigo onto:publicado_em ?revista
 
 
 3. 
@@ -50,10 +54,16 @@ WHERE	?artigo autor ?professor
 
 
 4.
-SELECT ?professor
-WHERE	?professor cursou ?curso
-		?curso pertence ?universidade
-		?universidade local = Europa
+
+SELECT	?professor ?pais ?continente
+WHERE
+{ 
+	?professor a onto:Professor.
+	?professor onto:estudou_em ?instituicao.
+	?instituicao onto:localizado ?pais.
+	?pais onto:localizado ?continente.
+	?continente onto:nome_completo "Europa"^^xsd:string.
+}
 
 
 5. 
@@ -73,16 +83,24 @@ WHERE
 }
 
 
-6.
-SELECT ?professor1 ?professor2 ?departamento
-WHERE	?professor autor ?artigo
-		?professor2 autor ?artigo
-		?professor1 pertence ?departamento1
-		?professor2 pertence ?departamento2
-		?departamento1 = ?departamento2
+6. 
 
+SELECT DISTINCT ?professor1 ?professor2 ?departamento ?instituto ?artigo
+WHERE
+{ 
+	?professor1 a onto:Professor.
+	?professor2 a onto:Professor.
+	?departamento a onto:Departamento.
+	?instituto a onto:Instituto.
+	?professor1 onto:trabalhou_em ?departamento.
+	?professor2 onto:trabalhou_em ?departamento.
+	?departamento onto:faz_parte ?instituto.
+	?professor1 onto:autor ?artigo.
+	?professor2 onto:autor ?artigo.
+	?instituto onto:nome_completo "Instituto de Matemática e Estatística"^^xsd:string.
+	filter(?professor1 != ?professor2)
 
-7. OK!
+7.
 
 SELECT 	?professor ?artigo ?ano
 WHERE
@@ -96,7 +114,6 @@ WHERE
 		
 
 8. 
-
 
 SELECT ?professor ?artigo ?ano ?revista
 WHERE 
@@ -113,15 +130,17 @@ WHERE
 
 9. 
 
-SELECT ?professor ?artigo ?ano ?conferencia ?local
+SELECT ?professor ?artigo ?ano ?conferencia ?pais
 WHERE 
 {
 	?professor a onto:Professor.
 	?conferencia a onto:Conferencia.
+	?conferencia onto:localizado ?pais.
 	?artigo a onto:Artigo.
 	?professor onto:autor ?artigo.
+	?pais onto:nome_completo "Brasil"^^xsd:string.
 	?artigo onto:publicado_em ?conferencia;
-	onto:ano 2013;
+	onto:ano 2014;
 	onto:ano ?ano
 }
 
