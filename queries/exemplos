@@ -11,9 +11,10 @@
 9	Quais artigos em conferências nacionais foram publicados por professores no ano XX?
 
 
-### ódigo ###
+### código ###
 
 1. revista XXX
+
 
 SELECT 	?aluno ?orientador ?artigo ?revista
 WHERE
@@ -21,13 +22,12 @@ WHERE
 	?aluno a onto:Aluno.
 	?aluno onto:autor ?artigo.
 	?orientador onto:autor ?artigo.
-	?aluno onto:tem_orientador ?orientador.
+	?orientador onto:orienta ?aluno.
 	?artigo onto:publicado_em ?revista.
+	?revista onto:titulo "[Teste] Revista de Visão do Rio de Janeiro"^^xsd:string
 }
 
 TODO: falta o filtro por nome da revista
-
-
 
 
 
@@ -73,31 +73,47 @@ WHERE	?professor autor ?artigo
 
 7. OK!
 
-SELECT 	?professor ?artigo
+SELECT 	?professor ?artigo ?ano
 WHERE
 { 
 	?professor a onto:Professor.
-	?artigo a onto:Artigo.
+	?artigo a onto:Artigo;
+	onto:ano ?ano.
 	?professor onto:autor ?artigo.
 	?artigo onto:ano 2014
 }
 		
 
 8. 
-SELECT ?artigo
-WHERE ?artigo ano XX
-	  ?artigo subClassOf artigo_de_revista
-	  ?artigo autor ?professor
-	  ?professor pertence IME
+
+
+SELECT ?professor ?artigo ?ano ?revista
+WHERE 
+{
+	?professor a onto:Professor.
+	?revista a onto:Revista.
+	?artigo a onto:Artigo.
+	?professor onto:autor ?artigo.
+	?artigo onto:publicado_em ?revista;
+	onto:ano 2014;
+	onto:ano ?ano
+}
 
 
 9. 
-SELECT ?artigo
-WHERE ?artigo ano XX	  
-	  ?artigo publicado_em ?conferencia
-	  ?conferencia local = Brasil
-	  ?artigo autor ?professor
-	  ?professor pertence IME
+
+SELECT ?professor ?artigo ?ano ?conferencia ?local
+WHERE 
+{
+	?professor a onto:Professor.
+	?conferencia a onto:Conferencia.
+	?artigo a onto:Artigo.
+	?professor onto:autor ?artigo.
+	?artigo onto:publicado_em ?conferencia;
+	onto:ano 2013;
+	onto:ano ?ano
+}
+
 
 #############################
 
@@ -129,3 +145,19 @@ WHERE
 { 
 	?professor onto:primeiro_nome "Renata"^^xsd:string
 }
+
+SELECT 	?revista ?titulo_revista
+WHERE
+{ 
+	?revista a onto:Revista;
+	onto:titulo 	?titulo_revista.
+	FILTER (str(?titulo_revista) = "[Teste] Revista de IA de Sao Paulo")
+}
+
+
+
+
+
+
+
+
