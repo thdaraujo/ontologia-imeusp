@@ -57,9 +57,23 @@ WHERE	?professor cursou ?curso
 
 
 5. 
-SELECT 	?professor ?orientador
-WHERE	?professor tem_orientador ?orientador
-		?orientador pertence "IME"
+
+
+SELECT 	?professor ?orientador ?departamento ?instituto
+WHERE
+{ 
+	?professor a onto:Professor.
+	?orientador a onto:Professor.
+	?orientador onto:trabalhou_em ?departamento.
+	?orientador onto:orienta ?professor.
+	?artigo onto:publicado_em ?revista.
+	?revista onto:titulo "[Teste] Revista de Visão do Rio de Janeiro"^^xsd:string
+}
+
+
+
+
+
 
 
 6.

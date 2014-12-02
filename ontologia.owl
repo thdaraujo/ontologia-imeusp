@@ -29,9 +29,6 @@
         <Class IRI="#Artigo"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Cidade"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Conferencia"/>
     </Declaration>
     <Declaration>
@@ -68,7 +65,7 @@
         <Class IRI="#Organizacao"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#País"/>
+        <Class IRI="#Pais"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Pessoa"/>
@@ -188,6 +185,9 @@
         <NamedIndividual IRI="#Europa"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#Flavio_Soares_Correa_da_Silva"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#França"/>
     </Declaration>
     <Declaration>
@@ -298,10 +298,6 @@
         <Class IRI="#Documento"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Cidade"/>
-        <Class IRI="#Local"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Conferencia"/>
         <Class IRI="#Evento"/>
     </SubClassOf>
@@ -334,7 +330,7 @@
         <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedAgent"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#País"/>
+        <Class IRI="#Pais"/>
         <Class IRI="#Local"/>
     </SubClassOf>
     <SubClassOf>
@@ -374,7 +370,7 @@
         <NamedIndividual IRI="#América"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#País"/>
+        <Class IRI="#Pais"/>
         <NamedIndividual IRI="#Brasil"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -398,7 +394,11 @@
         <NamedIndividual IRI="#Europa"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#País"/>
+        <Class IRI="#Professor"/>
+        <NamedIndividual IRI="#Flavio_Soares_Correa_da_Silva"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Pais"/>
         <NamedIndividual IRI="#França"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -426,10 +426,6 @@
         <NamedIndividual IRI="#Oceania"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Cidade"/>
-        <NamedIndividual IRI="#Paris"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Estado"/>
         <NamedIndividual IRI="#RJ"/>
     </ClassAssertion>
@@ -438,20 +434,12 @@
         <NamedIndividual IRI="#Renata_Wassermann"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Cidade"/>
-        <NamedIndividual IRI="#Rio_de_Janeiro"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Professor"/>
         <NamedIndividual IRI="#Roberto_Hirata"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Estado"/>
         <NamedIndividual IRI="#SP"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Cidade"/>
-        <NamedIndividual IRI="#São_Paulo"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Artigo"/>
@@ -524,11 +512,6 @@
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#sub_organizacao"/>
-        <NamedIndividual IRI="#Departamento_de_Ciência_da_Computação"/>
-        <NamedIndividual IRI="#Instituto_de_Matemática_e_Estatística"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#sub_organizacao"/>
         <NamedIndividual IRI="#Departamento_de_Estatística"/>
         <NamedIndividual IRI="#Instituto_de_Matemática_e_Estatística"/>
     </ObjectPropertyAssertion>
@@ -541,6 +524,16 @@
         <ObjectProperty IRI="#sub_organizacao"/>
         <NamedIndividual IRI="#Departamento_de_Matemática_Aplicada"/>
         <NamedIndividual IRI="#Instituto_de_Matemática_e_Estatística"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#orienta"/>
+        <NamedIndividual IRI="#Flavio_Soares_Correa_da_Silva"/>
+        <NamedIndividual IRI="#Renata_Wassermann"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#trabalhou_em"/>
+        <NamedIndividual IRI="#Flavio_Soares_Correa_da_Silva"/>
+        <NamedIndividual IRI="#Departamento_de_Ciência_da_Computação"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#localizado"/>
@@ -556,6 +549,11 @@
         <ObjectProperty IRI="#autor"/>
         <NamedIndividual IRI="#Guilherme_Rey"/>
         <NamedIndividual IRI="#Teste_Artigo_Revista_Brasil"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cursou"/>
+        <NamedIndividual IRI="#Guilherme_Rey"/>
+        <NamedIndividual IRI="#Graduação_em_Ciência_da_Computação"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#estudou_em"/>
@@ -768,6 +766,11 @@
         <NamedIndividual IRI="#Teste_Artigo_Conferência_Sao_Paulo"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cursou"/>
+        <NamedIndividual IRI="#Thiago_Araujo"/>
+        <NamedIndividual IRI="#Graduação_em_Ciência_da_Computação"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#estudou_em"/>
         <NamedIndividual IRI="#Thiago_Araujo"/>
         <NamedIndividual IRI="#Departamento_de_Ciência_da_Computação"/>
@@ -777,6 +780,21 @@
         <NamedIndividual IRI="#Île-de-France"/>
         <NamedIndividual IRI="#França"/>
     </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedfirstName"/>
+        <NamedIndividual IRI="#Flavio_Soares_Correa_da_Silva"/>
+        <Literal datatypeIRI="&xsd;string">Flavio</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedlastName"/>
+        <NamedIndividual IRI="#Flavio_Soares_Correa_da_Silva"/>
+        <Literal datatypeIRI="&xsd;string">Silva</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nome_completo"/>
+        <NamedIndividual IRI="#Flavio_Soares_Correa_da_Silva"/>
+        <Literal datatypeIRI="&xsd;string">Flavio Soares Correa da Silva</Literal>
+    </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#tipo_curso"/>
         <NamedIndividual IRI="#Graduação_em_Ciência_da_Computação"/>
