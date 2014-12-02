@@ -22,7 +22,7 @@ WHERE
 	?aluno a onto:Aluno.
 	?aluno onto:autor ?artigo.
 	?orientador onto:autor ?artigo.
-	?aluno onto:tem_orientador ?professor.
+	?orientador onto:orienta ?aluno.
 	?artigo onto:publicado_em ?revista.
 }
 
