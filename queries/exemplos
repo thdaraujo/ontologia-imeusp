@@ -24,11 +24,10 @@ WHERE
 	?orientador onto:autor ?artigo.
 	?orientador onto:orienta ?aluno.
 	?artigo onto:publicado_em ?revista.
+	?revista onto:titulo "[Teste] Revista de Visão do Rio de Janeiro"^^xsd:string
 }
 
 TODO: falta o filtro por nome da revista
-
-
 
 
 
@@ -74,7 +73,7 @@ WHERE	?professor autor ?artigo
 
 7. OK!
 
-SELECT 	?professor ?artigo
+SELECT 	?professor ?artigo ?ano
 WHERE
 { 
 	?professor a onto:Professor.
@@ -130,3 +129,19 @@ WHERE
 { 
 	?professor onto:primeiro_nome "Renata"^^xsd:string
 }
+
+SELECT 	?revista ?titulo_revista
+WHERE
+{ 
+	?revista a onto:Revista;
+	onto:titulo 	?titulo_revista.
+	FILTER (str(?titulo_revista) = "[Teste] Revista de IA de Sao Paulo")
+}
+
+
+
+
+
+
+
+
