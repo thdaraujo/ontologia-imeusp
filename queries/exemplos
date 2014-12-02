@@ -11,9 +11,10 @@
 9	Quais artigos em conferências nacionais foram publicados por professores no ano XX?
 
 
-### ódigo ###
+### código ###
 
 1. revista XXX
+
 
 SELECT 	?aluno ?orientador ?artigo ?revista
 WHERE
@@ -21,7 +22,7 @@ WHERE
 	?aluno a onto:Aluno.
 	?aluno onto:autor ?artigo.
 	?orientador onto:autor ?artigo.
-	?aluno onto:tem_orientador ?orientador.
+	?aluno onto:tem_orientador ?professor.
 	?artigo onto:publicado_em ?revista.
 }
 
