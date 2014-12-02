@@ -80,9 +80,6 @@
         <Class IRI="#Organizacao"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Orientador"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#País"/>
     </Declaration>
     <Declaration>
@@ -380,10 +377,6 @@
         <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedAgent"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Orientador"/>
-        <Class IRI="#Pessoa"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#País"/>
         <Class IRI="#Local"/>
     </SubClassOf>
@@ -620,12 +613,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#autor"/>
         <NamedIndividual IRI="#Guilherme_Rey"/>
-        <NamedIndividual IRI="#Teste_Artigo_Revista_Brasil"/>
+        <NamedIndividual IRI="#Teste_Artigo_Revista_Europa"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#autor"/>
         <NamedIndividual IRI="#Guilherme_Rey"/>
-        <NamedIndividual IRI="#Teste_Artigo_Revista_Europa"/>
+        <NamedIndividual IRI="#Teste_Artigo_Revista_Brasil"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#cursou"/>
@@ -650,7 +643,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#membros"/>
         <NamedIndividual IRI="#LIAMF"/>
-        <NamedIndividual IRI="#Thiago_Araujo"/>
+        <NamedIndividual IRI="#Leliane_Barros"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#membros"/>
@@ -660,7 +653,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#membros"/>
         <NamedIndividual IRI="#LIAMF"/>
-        <NamedIndividual IRI="#Leliane_Barros"/>
+        <NamedIndividual IRI="#Thiago_Araujo"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#autor"/>
@@ -685,12 +678,17 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#autor"/>
         <NamedIndividual IRI="#Renata_Wassermann"/>
-        <NamedIndividual IRI="#Teste_Artigo_Conferencia_Paris"/>
+        <NamedIndividual IRI="#Teste_Artigo_Conferência_Sao_Paulo"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#autor"/>
         <NamedIndividual IRI="#Renata_Wassermann"/>
-        <NamedIndividual IRI="#Teste_Artigo_Conferência_Sao_Paulo"/>
+        <NamedIndividual IRI="#Teste_Artigo_Conferencia_Paris"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#orienta"/>
+        <NamedIndividual IRI="#Renata_Wassermann"/>
+        <NamedIndividual IRI="#Thiago_Araujo"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#trabalhou_em"/>
@@ -705,12 +703,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#autor"/>
         <NamedIndividual IRI="#Roberto_Hirata"/>
-        <NamedIndividual IRI="#Teste_Artigo_Revista_Brasil"/>
+        <NamedIndividual IRI="#Teste_Artigo_Revista_Europa"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#autor"/>
         <NamedIndividual IRI="#Roberto_Hirata"/>
-        <NamedIndividual IRI="#Teste_Artigo_Revista_Europa"/>
+        <NamedIndividual IRI="#Teste_Artigo_Revista_Brasil"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#orienta"/>
@@ -740,12 +738,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#autor"/>
         <NamedIndividual IRI="#Teste_Artigo_Conferencia_Paris"/>
-        <NamedIndividual IRI="#Renata_Wassermann"/>
+        <NamedIndividual IRI="#Thiago_Araujo"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#autor"/>
         <NamedIndividual IRI="#Teste_Artigo_Conferencia_Paris"/>
-        <NamedIndividual IRI="#Thiago_Araujo"/>
+        <NamedIndividual IRI="#Renata_Wassermann"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#publicado_em"/>
@@ -755,12 +753,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#autor"/>
         <NamedIndividual IRI="#Teste_Artigo_Conferência_Sao_Paulo"/>
-        <NamedIndividual IRI="#Thiago_Araujo"/>
+        <NamedIndividual IRI="#Leliane_Barros"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#autor"/>
         <NamedIndividual IRI="#Teste_Artigo_Conferência_Sao_Paulo"/>
-        <NamedIndividual IRI="#Leliane_Barros"/>
+        <NamedIndividual IRI="#Thiago_Araujo"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#publicado_em"/>
@@ -770,12 +768,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#autor"/>
         <NamedIndividual IRI="#Teste_Artigo_Revista_Brasil"/>
-        <NamedIndividual IRI="#Guilherme_Rey"/>
+        <NamedIndividual IRI="#Roberto_Hirata"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#autor"/>
         <NamedIndividual IRI="#Teste_Artigo_Revista_Brasil"/>
-        <NamedIndividual IRI="#Roberto_Hirata"/>
+        <NamedIndividual IRI="#Guilherme_Rey"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#publicado_em"/>
@@ -785,12 +783,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#autor"/>
         <NamedIndividual IRI="#Teste_Artigo_Revista_Europa"/>
-        <NamedIndividual IRI="#Roberto_Hirata"/>
+        <NamedIndividual IRI="#Guilherme_Rey"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#autor"/>
         <NamedIndividual IRI="#Teste_Artigo_Revista_Europa"/>
-        <NamedIndividual IRI="#Guilherme_Rey"/>
+        <NamedIndividual IRI="#Roberto_Hirata"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#publicado_em"/>
@@ -830,12 +828,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#autor"/>
         <NamedIndividual IRI="#Thiago_Araujo"/>
-        <NamedIndividual IRI="#Teste_Artigo_Conferência_Sao_Paulo"/>
+        <NamedIndividual IRI="#Teste_Artigo_Conferencia_Paris"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#autor"/>
         <NamedIndividual IRI="#Thiago_Araujo"/>
-        <NamedIndividual IRI="#Teste_Artigo_Conferencia_Paris"/>
+        <NamedIndividual IRI="#Teste_Artigo_Conferência_Sao_Paulo"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#cursou"/>
@@ -846,11 +844,6 @@
         <ObjectProperty IRI="#estudou_em"/>
         <NamedIndividual IRI="#Thiago_Araujo"/>
         <NamedIndividual IRI="#Departamento_de_Ciência_da_Computação"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#tem_orientador"/>
-        <NamedIndividual IRI="#Thiago_Araujo"/>
-        <NamedIndividual IRI="#Renata_Wassermann"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#localizado"/>
@@ -1080,7 +1073,7 @@
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#membro_de"/>
-        <ObjectProperty IRI="#membro_de"/>
+        <ObjectProperty IRI="#membros"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#tem_orientador"/>
@@ -1141,10 +1134,6 @@
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#membros"/>
         <Class IRI="#Grupo"/>
-    </ObjectPropertyDomain>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#orienta"/>
-        <Class IRI="#Orientador"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#orienta"/>
@@ -1183,6 +1172,10 @@
         <Class IRI="#Aluno"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#tem_orientador"/>
+        <Class IRI="#Professor"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#tipo_de_curso"/>
         <Class IRI="#Curso"/>
     </ObjectPropertyDomain>
@@ -1190,6 +1183,10 @@
         <ObjectProperty IRI="#trabalhou_em"/>
         <Class IRI="#Pessoa"/>
     </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="http://www.ime.usp.br/~renata/FOAF-modifiedmember"/>
+        <Class IRI="#Pessoa"/>
+    </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#autor"/>
         <Class IRI="#Documento"/>
@@ -1204,7 +1201,15 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#estudou_em"/>
-        <Class IRI="#Organizacao"/>
+        <Class IRI="#Departamento"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#estudou_em"/>
+        <Class IRI="#Instituto"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#estudou_em"/>
+        <Class IRI="#Universidade"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#faz_parte"/>
@@ -1225,6 +1230,10 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="#orienta"/>
         <Class IRI="#Aluno"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#orienta"/>
+        <Class IRI="#Professor"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#possui"/>
@@ -1253,10 +1262,6 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="#tem_autores"/>
         <Class IRI="#Pessoa"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#tem_orientador"/>
-        <Class IRI="#Orientador"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#tem_orientador"/>
