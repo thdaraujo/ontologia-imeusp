@@ -47,16 +47,10 @@
         <Class IRI="#Documento"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Doutorado"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Estado"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Evento"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Graduacao"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Grupo"/>
@@ -68,13 +62,7 @@
         <Class IRI="#Instituto"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Livre_Docência"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Local"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Mestrado"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Organizacao"/>
@@ -86,13 +74,7 @@
         <Class IRI="#Pessoa"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Pos_Graduacao"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Professor"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Pós_Doutorado"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Revista"/>
@@ -108,9 +90,6 @@
     </Declaration>
     <Declaration>
         <Class IRI="#Tese_de_Mestrado"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Tipo_de_Curso"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Universidade"/>
@@ -182,6 +161,9 @@
         <DataProperty IRI="#sobrenome"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#tipo_curso"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#titulo"/>
     </Declaration>
     <Declaration>
@@ -189,9 +171,6 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Brasil"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Ciência_da_Computação"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Departamento_de_Ciência_da_Computação"/>
@@ -206,13 +185,13 @@
         <NamedIndividual IRI="#Departamento_de_Matemática_Aplicada"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Engenharia_Elétrica"/>
-    </Declaration>
-    <Declaration>
         <NamedIndividual IRI="#Europa"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#França"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Graduação_em_Ciência_da_Computação"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Guilherme_Rey"/>
@@ -225,12 +204,6 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Leliane_Barros"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Matemática"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Matemática_Aplicada"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Oceania"/>
@@ -341,16 +314,8 @@
         <Class IRI="#Organizacao"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Doutorado"/>
-        <Class IRI="#Pos_Graduacao"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Estado"/>
         <Class IRI="#Local"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Graduacao"/>
-        <Class IRI="#Tipo_de_Curso"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Grupo"/>
@@ -365,14 +330,6 @@
         <Class IRI="#Organizacao"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Livre_Docência"/>
-        <Class IRI="#Pos_Graduacao"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Mestrado"/>
-        <Class IRI="#Pos_Graduacao"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Organizacao"/>
         <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedAgent"/>
     </SubClassOf>
@@ -385,16 +342,8 @@
         <Class IRI="http://www.ime.usp.br/~renata/FOAF-modifiedAgent"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Pos_Graduacao"/>
-        <Class IRI="#Tipo_de_Curso"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Professor"/>
         <Class IRI="#Pessoa"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Pós_Doutorado"/>
-        <Class IRI="#Pos_Graduacao"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Revista"/>
@@ -429,10 +378,6 @@
         <NamedIndividual IRI="#Brasil"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Curso"/>
-        <NamedIndividual IRI="#Ciência_da_Computação"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Departamento"/>
         <NamedIndividual IRI="#Departamento_de_Ciência_da_Computação"/>
     </ClassAssertion>
@@ -449,16 +394,16 @@
         <NamedIndividual IRI="#Departamento_de_Matemática_Aplicada"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Curso"/>
-        <NamedIndividual IRI="#Engenharia_Elétrica"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class IRI="#Continente"/>
         <NamedIndividual IRI="#Europa"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#País"/>
         <NamedIndividual IRI="#França"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Curso"/>
+        <NamedIndividual IRI="#Graduação_em_Ciência_da_Computação"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Aluno"/>
@@ -475,14 +420,6 @@
     <ClassAssertion>
         <Class IRI="#Professor"/>
         <NamedIndividual IRI="#Leliane_Barros"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Curso"/>
-        <NamedIndividual IRI="#Matemática"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Curso"/>
-        <NamedIndividual IRI="#Matemática_Aplicada"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#Continente"/>
@@ -619,11 +556,6 @@
         <ObjectProperty IRI="#autor"/>
         <NamedIndividual IRI="#Guilherme_Rey"/>
         <NamedIndividual IRI="#Teste_Artigo_Revista_Brasil"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#cursou"/>
-        <NamedIndividual IRI="#Guilherme_Rey"/>
-        <NamedIndividual IRI="#Ciência_da_Computação"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#estudou_em"/>
@@ -836,11 +768,6 @@
         <NamedIndividual IRI="#Teste_Artigo_Conferência_Sao_Paulo"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#cursou"/>
-        <NamedIndividual IRI="#Thiago_Araujo"/>
-        <NamedIndividual IRI="#Ciência_da_Computação"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#estudou_em"/>
         <NamedIndividual IRI="#Thiago_Araujo"/>
         <NamedIndividual IRI="#Departamento_de_Ciência_da_Computação"/>
@@ -850,6 +777,11 @@
         <NamedIndividual IRI="#Île-de-France"/>
         <NamedIndividual IRI="#França"/>
     </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tipo_curso"/>
+        <NamedIndividual IRI="#Graduação_em_Ciência_da_Computação"/>
+        <Literal datatypeIRI="&xsd;string">Graduação</Literal>
+    </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#nome_completo"/>
         <NamedIndividual IRI="#Guilherme_Rey"/>
@@ -1072,8 +1004,8 @@
         <ObjectProperty IRI="#possui"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#membro_de"/>
         <ObjectProperty IRI="#membros"/>
+        <ObjectProperty IRI="#membro_de"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#tem_orientador"/>
@@ -1268,10 +1200,6 @@
         <Class IRI="#Professor"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#tipo_de_curso"/>
-        <Class IRI="#Tipo_de_Curso"/>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
         <ObjectProperty IRI="#trabalhou_em"/>
         <Class IRI="#Organizacao"/>
     </ObjectPropertyRange>
@@ -1316,6 +1244,10 @@
         <Class abbreviatedIRI="owl:Thing"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
+        <DataProperty IRI="#tipo_curso"/>
+        <Class IRI="#Curso"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
         <DataProperty IRI="#titulo"/>
         <Class IRI="#Documento"/>
     </DataPropertyDomain>
@@ -1337,6 +1269,10 @@
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#sobrenome"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tipo_curso"/>
         <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
