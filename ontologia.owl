@@ -80,12 +80,6 @@
         <Class IRI="#Tese"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Tese_de_Doutorado"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Tese_de_Mestrado"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Universidade"/>
     </Declaration>
     <Declaration>
@@ -144,6 +138,9 @@
     </Declaration>
     <Declaration>
         <DataProperty IRI="#ano"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#nome_citacao"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#nome_completo"/>
@@ -347,14 +344,6 @@
         <Class IRI="#Documento"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Tese_de_Doutorado"/>
-        <Class IRI="#Tese"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Tese_de_Mestrado"/>
-        <Class IRI="#Tese"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Universidade"/>
         <Class IRI="#Organizacao"/>
     </SubClassOf>
@@ -490,6 +479,11 @@
         <ObjectProperty IRI="#localizado"/>
         <NamedIndividual IRI="#Brasil"/>
         <NamedIndividual IRI="#América"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#faz_parte"/>
+        <NamedIndividual IRI="#Departamento_de_Ciência_da_Computação"/>
+        <NamedIndividual IRI="#Instituto_de_Matemática_e_Estatística"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#sub_organizacao"/>
@@ -795,6 +789,11 @@
         <DataProperty IRI="#sobrenome"/>
         <NamedIndividual IRI="#Guilherme_Rey"/>
         <Literal datatypeIRI="&xsd;string">Rey</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#nome_completo"/>
+        <NamedIndividual IRI="#Instituto_de_Matemática_e_Estatística"/>
+        <Literal datatypeIRI="&xsd;string">Instituto de Matemática e Estatística</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#nome_completo"/>
@@ -1231,6 +1230,10 @@
         <Class IRI="#Evento"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
+        <DataProperty IRI="#nome_citacao"/>
+        <Class IRI="#Pessoa"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
         <DataProperty IRI="#nome_completo"/>
         <Class abbreviatedIRI="owl:Thing"/>
     </DataPropertyDomain>
@@ -1257,6 +1260,10 @@
     <DataPropertyRange>
         <DataProperty IRI="#ano"/>
         <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#nome_citacao"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
     </DataPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#nome_completo"/>

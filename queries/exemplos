@@ -1,13 +1,13 @@
 ############# Questões de competência #############
 
-1	Quais os alunos que publicaram na revista "XXX" junto com seu orientador?
+#1	Quais os alunos que publicaram na revista "XXX" junto com seu orientador?
 2	Quais professores do departamento publicaram artigos em revista junto com pelo menos um orientando?
 3	Quais artigos em revista têm como autores um professor do departamento e um (ex-)aluno de pós?
 4	Quais professores estudaram na Europa?
-5	Quais professores foram orientados por professores do IME?
+#5	Quais professores foram orientados por professores do IME?
 6	Quais professores são co-autores de outros professores do mesmo departamento?
-7	Quais professores publicaram artigos no ano XX?
-8	Quais artigos em revista foram publicados por professores no ano XX?
+#7	Quais professores publicaram artigos no ano XX?
+#8	Quais artigos em revista foram publicados por professores no ano XX?
 9	Quais artigos em conferências nacionais foram publicados por professores no ano XX?
 
 
@@ -58,22 +58,19 @@ WHERE	?professor cursou ?curso
 
 5. 
 
-
-SELECT 	?professor ?orientador ?departamento ?instituto
+SELECT 	?professor ?orientador ?departamento ?instituto ?nome_instituto
 WHERE
 { 
 	?professor a onto:Professor.
 	?orientador a onto:Professor.
+	?departamento a onto:Departamento.
+	?instituto a onto:Instituto.
 	?orientador onto:trabalhou_em ?departamento.
+	?professor onto:trabalhou_em ?departamento.
+	?departamento onto:faz_parte ?instituto.
 	?orientador onto:orienta ?professor.
-	?artigo onto:publicado_em ?revista.
-	?revista onto:titulo "[Teste] Revista de Visão do Rio de Janeiro"^^xsd:string
+	?instituto onto:nome_completo "Instituto de Matemática e Estatística"^^xsd:string
 }
-
-
-
-
-
 
 
 6.
