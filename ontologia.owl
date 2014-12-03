@@ -110,6 +110,9 @@
         <ObjectProperty IRI="#membros"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#oferecido_por"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#orienta"/>
     </Declaration>
     <Declaration>
@@ -204,6 +207,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Leliane_Barros"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Mestrado_em_Ciência_da_Computação"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Oceania"/>
@@ -403,6 +409,10 @@
         <NamedIndividual IRI="#Leliane_Barros"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Curso"/>
+        <NamedIndividual IRI="#Mestrado_em_Ciência_da_Computação"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#Continente"/>
         <NamedIndividual IRI="#Oceania"/>
     </ClassAssertion>
@@ -519,6 +529,11 @@
         <NamedIndividual IRI="#Europa"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#oferecido_por"/>
+        <NamedIndividual IRI="#Graduação_em_Ciência_da_Computação"/>
+        <NamedIndividual IRI="#Departamento_de_Ciência_da_Computação"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#autor"/>
         <NamedIndividual IRI="#Guilherme_Rey"/>
         <NamedIndividual IRI="#Teste_Artigo_Revista_Europa"/>
@@ -576,6 +591,11 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#trabalhou_em"/>
         <NamedIndividual IRI="#Leliane_Barros"/>
+        <NamedIndividual IRI="#Departamento_de_Ciência_da_Computação"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#oferecido_por"/>
+        <NamedIndividual IRI="#Mestrado_em_Ciência_da_Computação"/>
         <NamedIndividual IRI="#Departamento_de_Ciência_da_Computação"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -1089,6 +1109,10 @@
         <Class IRI="#Grupo"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#oferecido_por"/>
+        <Class IRI="#Curso"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#orienta"/>
         <Class IRI="#Professor"/>
     </ObjectPropertyDomain>
@@ -1179,6 +1203,10 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="#membros"/>
         <Class IRI="#Pessoa"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#oferecido_por"/>
+        <Class IRI="#Organizacao"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#orienta"/>

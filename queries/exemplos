@@ -42,31 +42,26 @@ WHERE
 
 3. Quais artigos em revista têm como autores um professor do departamento e um (ex-)aluno de pós?
 
-SELECT ?professor ?exaluno ?departamento ?artigo
+SELECT ?professor ?aluno ?departamento ?artigo
 WHERE
 { 
 	?professor a onto:Professor.
-	?aluno a onto:Pessoa.
+	?aluno a onto:Aluno.
+	?revista a onto:Revista.
 	?departamento a onto:Departamento.
+	?professor onto:autor ?artigo.
+	?aluno onto:autor ?artigo.
+	?artigo onto:publicado_em ?revista.
+	?aluno onto:cursou ?curso.
+	?curso onto:tipo_curso "Pos_Graduacao"^^xsd:string.
+	?curso onto:oferecido_por ?instituicao.
 	?professor onto:trabalhou_em ?departamento.
 	?departamento onto:faz_parte ?instituto.
-	?orientador onto:orienta ?professor.
-	?instituto onto:nome_completo "Instituto de Matemática e Estatística"^^xsd:string
+	?instituto onto:faz_parte ?universidade.
+	?departamento onto:nome_completo "Departamento de Ciência da Computação"^^xsd:string.
+	?instituto onto:nome_completo "Instituto de Matemática e Estatística"^^xsd:string.
+	?universidade onto:nome_completo "Universidade de São Paulo"^^xsd:string
 }
-
-
-SELECT  ?trabalho ?coautor ?autor
-WHERE {
-	?autor old:Trabalha_em ?dept.
-	?coautor old:Trabalha_em ?dept.
-	?trabalho old:Tem_autores ?autor.
-	?trabalho old:Tem_autores ?coautor.
-	FILTER (?autor != ?coautor).	
-}GROUP BY ?trabalho
-
-
-
-
 
 4.
 
