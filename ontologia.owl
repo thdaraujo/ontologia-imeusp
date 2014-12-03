@@ -65,6 +65,9 @@
         <Class IRI="#Pais"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Pesquisador"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Pessoa"/>
     </Declaration>
     <Declaration>
@@ -310,6 +313,10 @@
     <SubClassOf>
         <Class IRI="#Pais"/>
         <Class IRI="#Local"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Pesquisador"/>
+        <Class IRI="#Pessoa"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Pessoa"/>
