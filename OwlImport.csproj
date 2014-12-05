@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C69E4873-10DC-43F1-A1ED-731C87DD3964}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OwlImport</RootNamespace>
+    <AssemblyName>OwlImport</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\Aluno.cs" />
+    <Compile Include="Core\Artigo.cs" />
+    <Compile Include="Core\Conferencia.cs" />
+    <Compile Include="Core\Continente.cs" />
+    <Compile Include="Core\Curso.cs" />
+    <Compile Include="Core\Departamento.cs" />
+    <Compile Include="Core\Documento.cs" />
+    <Compile Include="Core\Evento.cs" />
+    <Compile Include="Core\Instituto.cs" />
+    <Compile Include="Core\Local.cs" />
+    <Compile Include="Core\OntologyClass.cs" />
+    <Compile Include="Core\Organizacao.cs" />
+    <Compile Include="Core\Pais.cs" />
+    <Compile Include="Core\Pesquisador.cs" />
+    <Compile Include="Core\Pessoa.cs" />
+    <Compile Include="Core\Professor.cs" />
+    <Compile Include="Core\Revista.cs" />
+    <Compile Include="Core\Simposio.cs" />
+    <Compile Include="Core\TipoCongresso.cs" />
+    <Compile Include="Core\TipoCurso.cs" />
+    <Compile Include="Core\Universidade.cs" />
+    <Compile Include="NamedIndividuals.cs" />
+    <Compile Include="OwlHelper.cs" />
+    <Compile Include="OwlReader.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Relations\Autor.cs" />
+    <Compile Include="Relations\Relation.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="ref\ontologia.owl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ref\database.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
