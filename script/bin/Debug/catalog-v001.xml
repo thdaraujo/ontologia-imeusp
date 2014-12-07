@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1417977492313" name="duplicate:http://www.semanticweb.org/thiagoaraujo/ontologies/2014/10/SBC-ontologia-ime" uri="ontology-07122014-02-20-21.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1417977492313" name="duplicate:http://www.semanticweb.org/thiagoaraujo/ontologies/2014/10/SBC-ontologia-ime" uri="ontology-07122014-02-20-52.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1417977492313" name="duplicate:http://www.semanticweb.org/thiagoaraujo/ontologies/2014/10/SBC-ontologia-ime" uri="ontology-07122014-02-28-23.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1417977492313" name="duplicate:http://www.semanticweb.org/thiagoaraujo/ontologies/2014/10/SBC-ontologia-ime" uri="ontology-07122014-02-30-13.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1417977492313" name="duplicate:http://www.semanticweb.org/thiagoaraujo/ontologies/2014/10/SBC-ontologia-ime" uri="ontology-07122014-02-45-46--1.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1417977492313" name="duplicate:http://www.semanticweb.org/thiagoaraujo/ontologies/2014/10/SBC-ontologia-ime" uri="ontology-07122014-02-45-46.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1417977492313" name="duplicate:http://www.semanticweb.org/thiagoaraujo/ontologies/2014/10/SBC-ontologia-ime" uri="ontology-07122014-03-23-31--1.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1417977492313" name="duplicate:http://www.semanticweb.org/thiagoaraujo/ontologies/2014/10/SBC-ontologia-ime" uri="ontology-07122014-03-23-31.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1417977492313" name="duplicate:http://www.semanticweb.org/thiagoaraujo/ontologies/2014/10/SBC-ontologia-ime" uri="ontology-07122014-04-36-55.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1417977492313" name="shadowed:http://www.semanticweb.org/thiagoaraujo/ontologies/2014/10/SBC-ontologia-ime" uri="ref/ontologia-template.owl"/>
+    </group>
+</catalog>

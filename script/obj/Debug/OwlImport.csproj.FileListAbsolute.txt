@@ -1,0 +1,22 @@
+c:\users\grey\documents\visual studio 2013\Projects\OwlImport\OwlImport\bin\Debug\OwlImport.exe.config
+c:\users\grey\documents\visual studio 2013\Projects\OwlImport\OwlImport\bin\Debug\OwlImport.exe
+c:\users\grey\documents\visual studio 2013\Projects\OwlImport\OwlImport\bin\Debug\OwlImport.pdb
+c:\users\grey\documents\visual studio 2013\Projects\OwlImport\OwlImport\obj\Debug\OwlImport.csprojResolveAssemblyReference.cache
+c:\users\grey\documents\visual studio 2013\Projects\OwlImport\OwlImport\obj\Debug\OwlImport.exe
+c:\users\grey\documents\visual studio 2013\Projects\OwlImport\OwlImport\obj\Debug\OwlImport.pdb
+C:\Users\Thiago\Documents\GitHub\ontologia-imeusp\bin\Debug\OwlImport.exe.config
+C:\Users\Thiago\Documents\GitHub\ontologia-imeusp\obj\Debug\OwlImport.exe
+C:\Users\Thiago\Documents\GitHub\ontologia-imeusp\obj\Debug\OwlImport.pdb
+C:\Users\Thiago\Documents\GitHub\ontologia-imeusp\bin\Debug\OwlImport.exe
+C:\Users\Thiago\Documents\GitHub\ontologia-imeusp\bin\Debug\OwlImport.pdb
+C:\Users\Thiago\Documents\GitHub\ontologia-imeusp\obj\Debug\OwlImport.csprojResolveAssemblyReference.cache
+C:\Users\Thiago\Documents\GitHub\ontologia-imeusp\bin\Debug\ref\database.xml
+C:\Users\Thiago\Documents\GitHub\ontologia-imeusp\bin\Debug\ref\ontologia-template.owl
+C:\Users\Thiago\Documents\GitHub\ontologia-imeusp\script\bin\Debug\OwlImport.exe.config
+C:\Users\Thiago\Documents\GitHub\ontologia-imeusp\script\obj\Debug\OwlImport.exe
+C:\Users\Thiago\Documents\GitHub\ontologia-imeusp\script\obj\Debug\OwlImport.pdb
+C:\Users\Thiago\Documents\GitHub\ontologia-imeusp\script\bin\Debug\ref\database.xml
+C:\Users\Thiago\Documents\GitHub\ontologia-imeusp\script\bin\Debug\ref\ontologia-template.owl
+C:\Users\Thiago\Documents\GitHub\ontologia-imeusp\script\obj\Debug\OwlImport.csprojResolveAssemblyReference.cache
+C:\Users\Thiago\Documents\GitHub\ontologia-imeusp\script\bin\Debug\OwlImport.exe
+C:\Users\Thiago\Documents\GitHub\ontologia-imeusp\script\bin\Debug\OwlImport.pdb
