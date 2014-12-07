@@ -51,7 +51,7 @@
     <Compile Include="Core\Evento.cs" />
     <Compile Include="Core\Instituto.cs" />
     <Compile Include="Core\Local.cs" />
-    <Compile Include="Core\OntologyClass.cs" />
+    <Compile Include="Core\IOntologyClass.cs" />
     <Compile Include="Core\Organizacao.cs" />
     <Compile Include="Core\Pais.cs" />
     <Compile Include="Core\Pesquisador.cs" />
@@ -67,8 +67,9 @@
     <Compile Include="OwlReader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Relations\Autor.cs" />
-    <Compile Include="Relations\Relation.cs" />
+    <Compile Include="Relations\IOntologyRelation.cs" />
+    <Compile Include="Relations\OntologyRelation.cs" />
+    <Compile Include="Relations\OntologyRelationType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

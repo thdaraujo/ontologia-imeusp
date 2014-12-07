@@ -1,4 +1,5 @@
 ﻿using OwlImport.Core;
+using OwlImport.Relations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,25 +22,29 @@ namespace OwlImport
             }
         }
 
-        public Dictionary<string, OntologyClass> Profs { get; set; }
-        public Dictionary<string, OntologyClass> Cursos { get; set; }
-        public Dictionary<string, OntologyClass> Paises { get; set; }
-        public Dictionary<string, OntologyClass> Universidades { get; set; }
-        public Dictionary<string, OntologyClass> Revistas { get; set; }
-        public Dictionary<string, OntologyClass> Artigos { get; set; }
-        public Dictionary<string, OntologyClass> Conferencias { get; set; }
-        public Dictionary<string, OntologyClass> Simposios { get; set; }
+        public Dictionary<string, IOntologyIndividual> Profs { get; set; }
+        public Dictionary<string, IOntologyIndividual> Cursos { get; set; }
+        public Dictionary<string, IOntologyIndividual> Paises { get; set; }
+        public Dictionary<string, IOntologyIndividual> Universidades { get; set; }
+        public Dictionary<string, IOntologyIndividual> Revistas { get; set; }
+        public Dictionary<string, IOntologyIndividual> Artigos { get; set; }
+        public Dictionary<string, IOntologyIndividual> Conferencias { get; set; }
+        public Dictionary<string, IOntologyIndividual> Simposios { get; set; }
+
+        public List<IOntologyRelation> Relations { get; set; }
 
         private NamedIndividuals()
         {
-            this.Profs = new Dictionary<string, OntologyClass>();
-            this.Cursos = new Dictionary<string, OntologyClass>();
-            this.Paises = new Dictionary<string, OntologyClass>();
-            this.Universidades = new Dictionary<string, OntologyClass>();
-            this.Revistas = new Dictionary<string, OntologyClass>();
-            this.Artigos = new Dictionary<string, OntologyClass>();
-            this.Conferencias = new Dictionary<string, OntologyClass>();
-            this.Simposios = new Dictionary<string, OntologyClass>();
+            this.Profs = new Dictionary<string, IOntologyIndividual>();
+            this.Cursos = new Dictionary<string, IOntologyIndividual>();
+            this.Paises = new Dictionary<string, IOntologyIndividual>();
+            this.Universidades = new Dictionary<string, IOntologyIndividual>();
+            this.Revistas = new Dictionary<string, IOntologyIndividual>();
+            this.Artigos = new Dictionary<string, IOntologyIndividual>();
+            this.Conferencias = new Dictionary<string, IOntologyIndividual>();
+            this.Simposios = new Dictionary<string, IOntologyIndividual>();
+
+            this.Relations = new List<IOntologyRelation>();
         }
 
         /*
@@ -50,7 +55,7 @@ namespace OwlImport
          * 
         */
 
-        private string GenerateDeclaration(Dictionary<string, OntologyClass> dict)
+        private string GenerateDeclaration(Dictionary<string, IOntologyIndividual> dict)
         {
             StringBuilder sb = new StringBuilder();
             foreach (string iri in dict.Keys)
@@ -72,7 +77,7 @@ namespace OwlImport
            </ClassAssertion>
          * */
 
-        private string GenerateClassAssertion(string classIRI, Dictionary<string, OntologyClass> dict)
+        private string GenerateClassAssertion(string classIRI, Dictionary<string, IOntologyIndividual> dict)
         {
             StringBuilder sb = new StringBuilder();
             foreach (string iri in dict.Keys)
@@ -99,12 +104,15 @@ namespace OwlImport
          
          */
 
-        private string GenerateObjectPropertyAssertions(string classIRI, Dictionary<string, OntologyClass> dict)
+        private string GenerateObjectPropertyAssertions(List<IOntologyRelation> relations)
         {
-           //TODO
-            return string.Empty;
+            StringBuilder sb = new StringBuilder();
+            foreach (IOntologyRelation relation in relations)
+            {
+                sb.AppendLine(relation.getRelationOWL());
+            }
+            return sb.ToString();
         }
-
 
         /*         
         <DataPropertyAssertion>
@@ -114,7 +122,7 @@ namespace OwlImport
         </DataPropertyAssertion>         
          */
         
-        private string GenerateDataPropertyAssertions(Dictionary<string, OntologyClass> dict)
+        private string GenerateDataPropertyAssertions(Dictionary<string, IOntologyIndividual> dict)
         {
             StringBuilder sb = new StringBuilder();
             foreach (string iri in dict.Keys)
@@ -172,7 +180,7 @@ namespace OwlImport
         {
             StringBuilder sb = new StringBuilder();
 
-            //TODO
+            sb.AppendLine(GenerateObjectPropertyAssertions(NamedIndividuals.Instance.Relations));
 
             return sb.ToString();
         }       

@@ -16,9 +16,11 @@ namespace OwlImport
 
             OwlReader reader = new OwlReader(sourceFile);
             reader.IdentifyIndividuals();
+            reader.IdentifyRelations();
 
             NamedIndividuals individuals = NamedIndividuals.Instance;
             OutputOntology(individuals);
+
             Console.ReadLine();
         }
 
@@ -32,7 +34,7 @@ namespace OwlImport
                 builder.AppendLine(individuals.GetOWLNamedIndividualDeclarations());
                 builder.AppendLine(individuals.GetOWLClassAssertions());
                 builder.AppendLine(individuals.GetOWLDataPropertyAssertions());
-                //builder.AppendLine(individuals.GetOWLObjectPropertyAssertions());
+                builder.AppendLine(individuals.GetOWLObjectPropertyAssertions());
 
                 template.Replace("{{ADD-DATA}}", builder.ToString());
 

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace OwlImport.Core
 {
-    public interface OntologyClass
+    public interface IOntologyIndividual
     {
         string GetOWLDataProperties(string iri);
+        string IRI { get; }         
     }
 }

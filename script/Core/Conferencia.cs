@@ -6,10 +6,21 @@ using System.Threading.Tasks;
 
 namespace OwlImport.Core
 {
-    public class Conferencia : OntologyClass
+    public class Conferencia : IOntologyIndividual
     {
         public string titulo { get; set; }
         public int ano { get; set; }
+
+        public string IRI
+        {
+            get;
+            private set;
+        }
+
+        public Conferencia(string iri)
+        {
+            this.IRI = iri;
+        }
 
         public string GetOWLDataProperties(string iri)
         {

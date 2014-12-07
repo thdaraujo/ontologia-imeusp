@@ -1,4 +1,5 @@
 ﻿using OwlImport.Core;
+using OwlImport.Relations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace OwlImport
                 string id = pesquisador.Attributes["id"].Value;
                 if (!NamedIndividuals.Instance.Profs.ContainsKey(id))
                 {
-                    Professor auxProf = new Professor();
+                    Professor auxProf = new Professor(OwlHelper.ToIRI(id));
                     XmlNode ident = pesquisador.SelectSingleNode("identificacao");
                     if (ident != null)
                     {
@@ -68,7 +69,7 @@ namespace OwlImport
                     string artigo_iri = OwlHelper.ToIRI(artigo["titulo"].InnerText);
                     if (!NamedIndividuals.Instance.Artigos.ContainsKey(artigo_iri))
                     {
-                        NamedIndividuals.Instance.Artigos.Add(artigo_iri, new Artigo()
+                        NamedIndividuals.Instance.Artigos.Add(artigo_iri, new Artigo(artigo_iri)
                         {
                             Ano = Convert.ToInt32(artigo["ano"].InnerText),
                             titulo = artigo["titulo"].InnerText
@@ -78,7 +79,7 @@ namespace OwlImport
                     string revista_iri = OwlHelper.ToIRI(artigo["revista"].InnerText);
                     if (!NamedIndividuals.Instance.Revistas.ContainsKey(revista_iri))
                     {
-                        NamedIndividuals.Instance.Revistas.Add(revista_iri, new Revista()
+                        NamedIndividuals.Instance.Revistas.Add(revista_iri, new Revista(revista_iri)
                         {
                             titulo = artigo["revista"].InnerText
                         });
@@ -100,7 +101,7 @@ namespace OwlImport
                         case TipoCongresso.Conferencia:
                             if (!NamedIndividuals.Instance.Conferencias.ContainsKey(conf_iri))
                             {
-                                NamedIndividuals.Instance.Conferencias.Add(conf_iri, new Conferencia()
+                                NamedIndividuals.Instance.Conferencias.Add(conf_iri, new Conferencia(conf_iri)
                                 {
                                      titulo = trabalhoCongresso["nome_evento"].InnerText,
                                      ano = Convert.ToInt32(trabalhoCongresso["ano"].InnerText)
@@ -110,7 +111,7 @@ namespace OwlImport
                         case TipoCongresso.Simposio:
                             if (!NamedIndividuals.Instance.Simposios.ContainsKey(conf_iri))
                             {
-                                NamedIndividuals.Instance.Simposios.Add(conf_iri, new Simposio()
+                                NamedIndividuals.Instance.Simposios.Add(conf_iri, new Simposio(conf_iri)
                                 {
                                     titulo = trabalhoCongresso["nome_evento"].InnerText,
                                     ano = Convert.ToInt32(trabalhoCongresso["ano"].InnerText)
@@ -125,7 +126,7 @@ namespace OwlImport
                     string artigoIri_conf = OwlHelper.ToIRI(trabalhoCongresso["titulo"].InnerText);
                     if (!NamedIndividuals.Instance.Artigos.ContainsKey(artigoIri_conf))
                     {
-                        NamedIndividuals.Instance.Artigos.Add(artigoIri_conf, new Artigo()
+                        NamedIndividuals.Instance.Artigos.Add(artigoIri_conf, new Artigo(artigoIri_conf)
                         {
                             titulo = trabalhoCongresso["titulo"].InnerText,
                             Ano =  Convert.ToInt32(trabalhoCongresso["ano"].InnerText)
@@ -142,9 +143,16 @@ namespace OwlImport
         {
             foreach (XmlNode pesquisador in this.XmlDoc.SelectNodes("//curriculo_lattes/pesquisador"))
             {
-                foreach (XmlNode artigo in pesquisador["artigos_em_periodicos"])
+                string pesquisadorId = pesquisador.Attributes["id"].Value;
+                IOntologyIndividual ontoPesquisador = NamedIndividuals.Instance.Profs[pesquisadorId];
+
+                foreach (XmlNode artigo in pesquisador["artigos_em_periodicos"].SelectNodes("artigo"))
                 {
-                    // TODO: Relações...
+                    string artigo_iri = OwlHelper.ToIRI(artigo["titulo"].InnerText);
+                    IOntologyIndividual ontoArtigo = NamedIndividuals.Instance.Artigos[artigo_iri];
+                    IOntologyRelation relation = new OntologyRelation(OntologyRelationType.Autor, ontoPesquisador, ontoArtigo);
+
+                    NamedIndividuals.Instance.Relations.Add(relation);
                 }
             }
         }
@@ -159,7 +167,7 @@ namespace OwlImport
             {
                 if (!NamedIndividuals.Instance.Universidades.ContainsKey("universidade_de_sao_paulo"))
                 {
-                    NamedIndividuals.Instance.Universidades.Add("universidade_de_sao_paulo", new Universidade()
+                    NamedIndividuals.Instance.Universidades.Add("universidade_de_sao_paulo", new Universidade("universidade_de_sao_paulo")
                     {
                         nome_completo = "Universidade de São Paulo"
                     });
@@ -167,7 +175,7 @@ namespace OwlImport
             }
             else if (!NamedIndividuals.Instance.Universidades.ContainsKey(org))
             {
-                NamedIndividuals.Instance.Universidades.Add(org, new Universidade()
+                NamedIndividuals.Instance.Universidades.Add(org, new Universidade(org)
                 {
                     nome_completo = values[0]
                 });
@@ -176,7 +184,7 @@ namespace OwlImport
             string pais = OwlHelper.ToIRI(values[2].Trim());
             if (!NamedIndividuals.Instance.Paises.ContainsKey(pais))
             {
-                NamedIndividuals.Instance.Paises.Add(pais, new Pais()
+                NamedIndividuals.Instance.Paises.Add(pais, new Pais(pais)
                 {
                     nome_completo = values[2]
                 });
@@ -188,7 +196,7 @@ namespace OwlImport
             string tipoIRI = OwlHelper.ToIRI(xmlElement.InnerText);
             if (!NamedIndividuals.Instance.Cursos.ContainsKey(tipoIRI))
             {
-                NamedIndividuals.Instance.Cursos.Add(tipoIRI, new Curso()
+                NamedIndividuals.Instance.Cursos.Add(tipoIRI, new Curso(tipoIRI)
                 {
                     tipo_curso = xmlElement.InnerText.Contains("Graduação") ? TipoCurso.graduacao : TipoCurso.pos_graduacao,
                     titulo = xmlElement.InnerText
