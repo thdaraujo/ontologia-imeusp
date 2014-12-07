@@ -1,19 +1,19 @@
 ############# Questões de competência #############
 
-1	Quais os alunos que publicaram na revista "XXX" junto com seu orientador?
-2	Quais professores do departamento publicaram artigos em revista junto com pelo menos um orientando?
+#1	Quais os alunos que publicaram na revista "XXX" junto com seu orientador?
+#2	Quais professores do departamento publicaram artigos em revista junto com pelo menos um orientando?
 3	Quais artigos em revista têm como autores um professor do departamento e um (ex-)aluno de pós?
-4	Quais professores estudaram na Europa?
-5	Quais professores foram orientados por professores do IME?
-6	Quais professores são co-autores de outros professores do mesmo departamento?
-7	Quais professores publicaram artigos no ano XX?
-8	Quais artigos em revista foram publicados por professores no ano XX?
-9	Quais artigos em conferências nacionais foram publicados por professores no ano XX?
+#4	Quais professores estudaram na Europa?
+#5	Quais professores foram orientados por professores do IME?
+#6	Quais professores são co-autores de outros professores do mesmo departamento?
+#7	Quais professores publicaram artigos no ano XX?
+#8	Quais artigos em revista foram publicados por professores no ano XX?
+#9	Quais artigos em conferências nacionais foram publicados por professores no ano XX?
 
 
-### ódigo ###
+### código ###
 
-1. revista XXX
+1. 
 
 SELECT 	?aluno ?orientador ?artigo ?revista
 WHERE
@@ -21,111 +21,137 @@ WHERE
 	?aluno a onto:Aluno.
 	?aluno onto:autor ?artigo.
 	?orientador onto:autor ?artigo.
-	?aluno onto:tem_orientador ?orientador.
+	?orientador onto:orienta ?aluno.
 	?artigo onto:publicado_em ?revista.
+	?revista onto:titulo "[Teste] Revista de Visão do Rio de Janeiro"^^xsd:string
 }
 
-TODO: falta o filtro por nome da revista
+2. artigos em revista com pelo menos 1 orientando
 
+SELECT 	DISTINCT ?professor
+WHERE
+{ 
+	?aluno a onto:Aluno.
+	?professor a onto:Professor.
+	?revista a onto:Revista.
+	?aluno onto:autor ?artigo.
+	?professor onto:autor ?artigo.
+	?orientador onto:orienta ?aluno.
+	?artigo onto:publicado_em ?revista
+}
 
+3. Quais artigos em revista têm como autores um professor do departamento e um (ex-)aluno de pós?
 
-
-
-
-2. pelo menos um
-
-SELECT 	?professor ?orientando
-WHERE 	?professor orienta ?orientando
-		?professor autor ?artigo
-		?orientando autor ?artigo
-		pelo menos 1?
-
-
-3. 
-SELECT 	?artigo
-WHERE	?artigo autor ?professor
-		?professor pertence "IME"
-		?aluno cursou ?pos_graduacao
-		?aluno pertence "IME"
-
-
-4.
-SELECT ?professor
-WHERE	?professor cursou ?curso
-		?curso pertence ?universidade
-		?universidade local = Europa
-
-
-5. 
-SELECT 	?professor ?orientador
-WHERE	?professor tem_orientador ?orientador
-		?orientador pertence "IME"
-
-
-6.
-SELECT ?professor1 ?professor2 ?departamento
-WHERE	?professor autor ?artigo
-		?professor2 autor ?artigo
-		?professor1 pertence ?departamento1
-		?professor2 pertence ?departamento2
-		?departamento1 = ?departamento2
-
-
-7. OK!
-
-SELECT 	?professor ?artigo
+SELECT ?professor ?aluno ?departamento ?artigo
 WHERE
 { 
 	?professor a onto:Professor.
-	?artigo a onto:Artigo.
+	?aluno a onto:Aluno.
+	?revista a onto:Revista.
+	?departamento a onto:Departamento.
 	?professor onto:autor ?artigo.
-	?artigo onto:ano 2014
+	?aluno onto:autor ?artigo.
+	?artigo onto:publicado_em ?revista.
+	?aluno onto:cursou ?curso.
+	?curso onto:tipo_curso "Pos_Graduacao"^^xsd:string.
+	?curso onto:oferecido_por ?instituicao.
+	?professor onto:trabalhou_em ?departamento.
+	?departamento onto:faz_parte ?instituto.
+	?instituto onto:faz_parte ?universidade.
+	?departamento onto:nome_completo "Departamento de Ciência da Computação"^^xsd:string.
+	?instituto onto:nome_completo "Instituto de Matemática e Estatística"^^xsd:string.
+	?universidade onto:nome_completo "Universidade de São Paulo"^^xsd:string
 }
-		
 
-8. 
-SELECT ?artigo
-WHERE ?artigo ano XX
-	  ?artigo subClassOf artigo_de_revista
-	  ?artigo autor ?professor
-	  ?professor pertence IME
+4.
 
-
-9. 
-SELECT ?artigo
-WHERE ?artigo ano XX	  
-	  ?artigo publicado_em ?conferencia
-	  ?conferencia local = Brasil
-	  ?artigo autor ?professor
-	  ?professor pertence IME
-
-#############################
-
-
-
-### Exemplos ###
-
-
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX onto: <http://www.semanticweb.org/thiagoaraujo/ontologies/2014/10/SBC-ontologia-ime#>
-
-SELECT ?object
-	WHERE { ?object rdfs:subClassOf onto:Pessoa }
-
-
-SELECT ?aluno
-	WHERE {onto:Renata_Wassermann onto:orienta ?aluno }
-
-
-SELECT ?professor ?aluno
-	WHERE {?professor onto:orienta ?aluno }
-
-
-SELECT 	?professor
+SELECT	?professor ?pais ?continente
 WHERE
 { 
-	?professor onto:primeiro_nome "Renata"^^xsd:string
+	?professor a onto:Professor.
+	?professor onto:estudou_em ?instituicao.
+	?instituicao onto:localizado ?pais.
+	?pais onto:localizado ?continente.
+	?continente onto:nome_completo "Europa"^^xsd:string.
 }
+
+5. 
+
+SELECT 	?professor ?orientador ?departamento ?instituto ?nome_instituto
+WHERE
+{ 
+	?professor a onto:Professor.
+	?orientador a onto:Professor.
+	?departamento a onto:Departamento.
+	?instituto a onto:Instituto.
+	?orientador onto:trabalhou_em ?departamento.
+	?professor onto:trabalhou_em ?departamento.
+	?departamento onto:faz_parte ?instituto.
+	?orientador onto:orienta ?professor.
+	?instituto onto:nome_completo "Instituto de Matemática e Estatística"^^xsd:string
+}
+
+6. 
+
+SELECT DISTINCT ?professor1 ?professor2 ?departamento ?instituto ?artigo
+WHERE
+{ 
+	?professor1 a onto:Professor.
+	?professor2 a onto:Professor.
+	?departamento a onto:Departamento.
+	?instituto a onto:Instituto.
+	?professor1 onto:trabalhou_em ?departamento.
+	?professor2 onto:trabalhou_em ?departamento.
+	?departamento onto:faz_parte ?instituto.
+	?professor1 onto:autor ?artigo.
+	?professor2 onto:autor ?artigo.
+	?instituto onto:nome_completo "Instituto de Matemática e Estatística"^^xsd:string.
+	filter(?professor1 != ?professor2)
+}
+
+7.
+
+SELECT 	?professor ?artigo ?ano
+WHERE
+{ 
+	?professor a onto:Professor.
+	?artigo a onto:Artigo;
+	onto:ano ?ano.
+	?professor onto:autor ?artigo.
+	?artigo onto:ano 2014
+}	
+
+8. 
+
+SELECT ?professor ?artigo ?ano ?revista
+WHERE 
+{
+	?professor a onto:Professor.
+	?revista a onto:Revista.
+	?artigo a onto:Artigo.
+	?professor onto:autor ?artigo.
+	?artigo onto:publicado_em ?revista;
+	onto:ano 2014;
+	onto:ano ?ano
+}
+
+9. 
+
+SELECT ?professor ?artigo ?ano ?conferencia ?pais
+WHERE 
+{
+	?professor a onto:Professor.
+	?conferencia a onto:Conferencia.
+	?conferencia onto:localizado ?pais.
+	?artigo a onto:Artigo.
+	?professor onto:autor ?artigo.
+	?pais onto:nome_completo "Brasil"^^xsd:string.
+	?artigo onto:publicado_em ?conferencia;
+	onto:ano 2014;
+	onto:ano ?ano
+}
+
+
+
+
+

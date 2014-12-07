@@ -29,7 +29,7 @@ import os, errno
 import warnings
 warnings.filterwarnings('ignore')
 
-sys.path.append('scriptLattes')
+sys.path.append('scriptLattes/')
 sys.path.append('scriptLattes/producoesBibliograficas/')
 sys.path.append('scriptLattes/producoesTecnicas/')
 sys.path.append('scriptLattes/producoesArtisticas/')

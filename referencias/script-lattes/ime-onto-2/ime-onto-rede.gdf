@@ -1,0 +1,16 @@
+nodedef> name VARCHAR, idLattes VARCHAR, label VARCHAR, rotulo VARCHAR, lat DOUBLE, lon DOUBLE, collaborationRank DOUBLE, producaoBibliografica DOUBLE, artigoEmPeriodico DOUBLE, livro DOUBLE, capituloDeLivro DOUBLE, trabalhoEmCongresso DOUBLE, resumoExpandido DOUBLE, resumo DOUBLE, color VARCHAR
+0,0247990329725342,Andre Fujita,[Sem rotulo],,,0.15,54,42,0,3,1,0,8,'255,255,255'
+1,1047633546096022,Arnaldo Mandel,[Sem rotulo],,,0.15,25,22,1,0,2,0,0,'255,255,255'
+2,9284531339856547,Carlos Eduardo Ferreira,[Sem rotulo],,,0.15,79,28,3,2,22,8,16,'255,255,255'
+3,2342739419247924,Fabio Kon,[Sem rotulo],,,0.15,183,28,8,16,106,18,7,'255,255,255'
+4,8571722708574643,Flavio Soares Correa da Silva,[Sem rotulo],,,0.15,103,17,9,7,60,6,4,'255,255,255'
+5,7931486543023117,Jose Coelho de Pina Junior,[Sem rotulo],,,0.15,9,4,1,1,1,1,1,'255,255,255'
+6,0362417828475021,Junior Barrera,[Sem rotulo],,,0.15,158,45,5,6,81,0,21,'255,255,255'
+7,0620986273710878,Marcelo Finger,[Sem rotulo],,,0.15,113,27,4,5,63,5,9,'255,255,255'
+8,8548608291351316,Renata Wassermann,[Sem rotulo],,,0.15,71,16,0,1,45,7,2,'255,255,255'
+9,2240951178648368,Roberto Marcondes Cesar Junior,[Sem rotulo],,,0.15,178,50,9,5,93,5,16,'255,255,255'
+10,9283304583756076,Ronaldo Fumio Hashimoto,[Sem rotulo],,,0.15,56,18,0,1,27,3,7,'255,255,255'
+11,8775077428017258,Routo Terada,[Sem rotulo],,,0.15,61,8,7,6,38,1,1,'255,255,255'
+12,3174379270045864,Yoshiko Wakabayashi,[Sem rotulo],,,0.15,89,36,3,3,22,11,14,'255,255,255'
+13,4627360041573918,Yoshiharu Kohayakawa,[Sem rotulo],,,0.15,111,69,5,7,18,11,1,'255,255,255'
+edgedef> node1 VARCHAR, node2 VARCHAR, weight DOUBLE

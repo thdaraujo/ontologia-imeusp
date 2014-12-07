@@ -197,7 +197,7 @@ class Grupo:
 		
 		self.gerarRISdeMembros()
 		self.gerarCSVdeQualisdeGrupo()
-		#self.gerarXMLdeGrupo()
+		self.gerarXMLdeGrupo()
 		
 		# Salvamos alguns dados para análise posterior (com outras ferramentas)
 		prefix = self.obterParametro('global-prefixo')+'-' if not self.obterParametro('global-prefixo')=='' else ''
