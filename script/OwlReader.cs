@@ -144,64 +144,116 @@ namespace OwlImport
             foreach (XmlNode pesquisador in this.XmlDoc.SelectNodes("//curriculo_lattes/pesquisador"))
             {
                 string pesquisadorId = pesquisador.Attributes["id"].Value;
-                IOntologyIndividual ontoPesquisador = NamedIndividuals.Instance.Profs[pesquisadorId];
+                var pesquisadorIndividual = NamedIndividuals.Instance.Profs[pesquisadorId];
 
+                #region Identificando Cursos, Países e Universidades
+
+                foreach (XmlNode formacao in pesquisador.SelectNodes("formacao_academica/formacao"))
+                {
+                    var curso =  GetCurso(formacao["tipo"]);
+                    var universidade = GetUniversidadePais(formacao["nome_instituicao"]);                    
+                    
+                    var cursoIndividual = NamedIndividuals.Instance.Cursos[curso.IRI];
+                    var universidadeIndividual = NamedIndividuals.Instance.Universidades[universidade.IRI];
+                    var paisIndividual = NamedIndividuals.Instance.Paises[universidade.pais.IRI];
+
+                    IOntologyRelation cursouRelation = new OntologyRelation(pesquisadorIndividual, OntologyRelationType.Cursou, cursoIndividual);
+                    IOntologyRelation estudouEmRelation = new OntologyRelation(pesquisadorIndividual, OntologyRelationType.EstudouEm, universidadeIndividual);
+                    IOntologyRelation oferecidoPorRelation = new OntologyRelation(cursoIndividual, OntologyRelationType.OferecidoPor, universidadeIndividual);
+
+                    AddRelation(cursouRelation);
+                    AddRelation(estudouEmRelation);
+                    AddRelation(oferecidoPorRelation);                    
+                }
+                
+                #endregion
+
+                #region Publicações
+                
                 foreach (XmlNode artigo in pesquisador["artigos_em_periodicos"].SelectNodes("artigo"))
                 {
                     string artigo_iri = OwlHelper.ToIRI(artigo["titulo"].InnerText);
-                    IOntologyIndividual ontoArtigo = NamedIndividuals.Instance.Artigos[artigo_iri];
-                    IOntologyRelation relation = new OntologyRelation(OntologyRelationType.Autor, ontoPesquisador, ontoArtigo);
+                    IOntologyIndividual artigoIndividual = NamedIndividuals.Instance.Artigos[artigo_iri];
+                    IOntologyRelation autorRelation = new OntologyRelation(pesquisadorIndividual, OntologyRelationType.Autor, artigoIndividual);
 
-                    NamedIndividuals.Instance.Relations.Add(relation);
+                    AddRelation(autorRelation);
                 }
-            }
+
+                #endregion
+           }
         }
 
         private void CheckUniversidadePais(XmlElement xmlElement)
         {
+            Universidade universidade =  GetUniversidadePais(xmlElement);
+            Pais pais = universidade.pais;
+
+            if (!NamedIndividuals.Instance.Universidades.ContainsKey(universidade.IRI))
+            {
+                NamedIndividuals.Instance.Universidades.Add(universidade.IRI, universidade);
+            }
+
+            if (!NamedIndividuals.Instance.Paises.ContainsKey(pais.IRI))
+            {
+                NamedIndividuals.Instance.Paises.Add(pais.IRI, pais);
+            }
+        }        
+
+        private Universidade GetUniversidadePais(XmlElement xmlElement)
+        {
+            Universidade universidade;
+            Pais pais;
+
             string value = xmlElement.InnerText;
             string[] values = value.Split(new char[] { ',' });
             string org = OwlHelper.ToIRI(values[0].Trim());
 
+            string paisIRI = OwlHelper.ToIRI(values[2].Trim());
+            pais = new Pais(paisIRI)
+            {
+                nome_completo = values[2]
+            };     
+
             if (org.Contains("universidade_de_sao_paulo"))
             {
-                if (!NamedIndividuals.Instance.Universidades.ContainsKey("universidade_de_sao_paulo"))
+                universidade = new Universidade("universidade_de_sao_paulo", pais)
                 {
-                    NamedIndividuals.Instance.Universidades.Add("universidade_de_sao_paulo", new Universidade("universidade_de_sao_paulo")
-                    {
-                        nome_completo = "Universidade de São Paulo"
-                    });
-                }
+                    nome_completo = "Universidade de São Paulo"
+                };
             }
-            else if (!NamedIndividuals.Instance.Universidades.ContainsKey(org))
+            else
             {
-                NamedIndividuals.Instance.Universidades.Add(org, new Universidade(org)
-                {
-                    nome_completo = values[0]
-                });
-            }
-
-            string pais = OwlHelper.ToIRI(values[2].Trim());
-            if (!NamedIndividuals.Instance.Paises.ContainsKey(pais))
-            {
-                NamedIndividuals.Instance.Paises.Add(pais, new Pais(pais)
-                {
-                    nome_completo = values[2]
-                });
-            }
+                universidade = new Universidade(org, pais)
+                 {
+                     nome_completo = values[0]
+                 };
+            }   
+    
+            return universidade;
         }
 
         private void CheckCurso(XmlElement xmlElement)
         {
-            string tipoIRI = OwlHelper.ToIRI(xmlElement.InnerText);
-            if (!NamedIndividuals.Instance.Cursos.ContainsKey(tipoIRI))
+            var curso = GetCurso(xmlElement);
+            if (!NamedIndividuals.Instance.Cursos.ContainsKey(curso.IRI))
             {
-                NamedIndividuals.Instance.Cursos.Add(tipoIRI, new Curso(tipoIRI)
-                {
-                    tipo_curso = xmlElement.InnerText.Contains("Graduação") ? TipoCurso.graduacao : TipoCurso.pos_graduacao,
-                    titulo = xmlElement.InnerText
-                });
-            }
+                NamedIndividuals.Instance.Cursos.Add(curso.IRI, curso);
+            }            
+        }
+
+        private Curso GetCurso(XmlElement xmlElement)
+        {
+            string tipoIRI = OwlHelper.ToIRI(xmlElement.InnerText);
+            return new Curso(tipoIRI)
+            {
+                tipo_curso = xmlElement.InnerText.Contains("Graduação") ? TipoCurso.graduacao : TipoCurso.pos_graduacao,
+                titulo = xmlElement.InnerText
+            };
+        }
+
+        private static void AddRelation(IOntologyRelation autorRelation)
+        {
+            NamedIndividuals.Instance.Relations.Add(autorRelation);
         }
 
     }

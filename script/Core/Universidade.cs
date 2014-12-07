@@ -10,20 +10,24 @@ namespace OwlImport.Core
     {
         public string nome_completo { get; set; }
 
+        public Pais pais { get; set; }
+
         public string IRI
         {
             get;
             private set;
         }
 
-        public Universidade(string iri)
+        public Universidade(string iri, Pais pais)
         {
             this.IRI = iri;
+            this.pais = pais;
         }
 
         public string GetOWLDataProperties(string iri)
         {
             return OwlHelper.DataPropertyAssertion_String("nome_completo", iri, this.nome_completo);
+
         }
 
     }

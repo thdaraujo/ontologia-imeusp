@@ -31,7 +31,7 @@ namespace OwlImport
         public Dictionary<string, IOntologyIndividual> Conferencias { get; set; }
         public Dictionary<string, IOntologyIndividual> Simposios { get; set; }
 
-        public List<IOntologyRelation> Relations { get; set; }
+        public HashSet<IOntologyRelation> Relations { get; set; }
 
         private NamedIndividuals()
         {
@@ -44,7 +44,7 @@ namespace OwlImport
             this.Conferencias = new Dictionary<string, IOntologyIndividual>();
             this.Simposios = new Dictionary<string, IOntologyIndividual>();
 
-            this.Relations = new List<IOntologyRelation>();
+            this.Relations = new HashSet<IOntologyRelation>();
         }
 
         /*
@@ -104,7 +104,7 @@ namespace OwlImport
          
          */
 
-        private string GenerateObjectPropertyAssertions(List<IOntologyRelation> relations)
+        private string GenerateObjectPropertyAssertions(HashSet<IOntologyRelation> relations)
         {
             StringBuilder sb = new StringBuilder();
             foreach (IOntologyRelation relation in relations)

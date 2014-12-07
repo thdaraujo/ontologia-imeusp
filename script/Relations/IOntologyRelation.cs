@@ -9,5 +9,7 @@ namespace OwlImport.Relations
     public interface IOntologyRelation
     {
         string getRelationOWL();
+        int GetHashCode();
+        bool Equals(object a);
     }
 }

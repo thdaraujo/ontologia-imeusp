@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 namespace OwlImport.Relations
 {
     class OntologyRelation : IOntologyRelation
-    {        
-        public string Relation { get; set; }
-        public string Individual { get; set; }
+    {    
+        public string Individual { get; set; }    
+        public string Relation { get; set; }        
         public string RelatedTo { get; set; }
 
-        public OntologyRelation(string relation, IOntologyIndividual individual, IOntologyIndividual relatedTo)
-        {
-            this.Relation = relation;
+        public OntologyRelation(IOntologyIndividual individual, string relation, IOntologyIndividual relatedTo)
+        {            
             this.Individual = individual.IRI;
+            this.Relation = relation;
             this.RelatedTo = relatedTo.IRI;
         }
 
@@ -40,6 +40,19 @@ namespace OwlImport.Relations
                          ";
 
             return string.Format(assertion, this.Relation, this.Individual, this.RelatedTo);
+        }
+
+        public override int GetHashCode()
+        {
+            return (this.Individual + this.Relation + this.RelatedTo).GetHashCode();
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj is OntologyRelation)
+            {
+                return (obj as OntologyRelation).GetHashCode() == this.GetHashCode();
+            }
+            return false;
         }
     }
 }
