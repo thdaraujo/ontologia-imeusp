@@ -84,6 +84,8 @@ namespace OwlImport
                             titulo = artigo["revista"].InnerText
                         });
                     }
+                    CheckPais(artigo["revista"].InnerText);
+
                 }
 
                 foreach (XmlNode trabalhoCongresso in pesquisador["trabalho_completo_congresso"].SelectNodes("trabalho_completo"))
@@ -119,6 +121,7 @@ namespace OwlImport
                             }
                             break;
                     }
+                    CheckPais(trabalhoCongresso["nome_evento"].InnerText);
 
                     #endregion
 
@@ -138,6 +141,7 @@ namespace OwlImport
                 #endregion
             }
         }
+
 
         public void IdentifyRelations()
         {
@@ -201,7 +205,8 @@ namespace OwlImport
         {
             foreach (XmlNode trabalhoCongresso in pesquisador["trabalho_completo_congresso"].SelectNodes("trabalho_completo"))
             {
-                string conf_iri = OwlHelper.ToIRI(trabalhoCongresso["nome_evento"].InnerText);
+                var conf = trabalhoCongresso["nome_evento"].InnerText;
+                string conf_iri = OwlHelper.ToIRI(conf);
                 string artigoIri = OwlHelper.ToIRI(trabalhoCongresso["titulo"].InnerText);
 
                 IOntologyIndividual eventoIndividual = null;
@@ -221,10 +226,12 @@ namespace OwlImport
 
                 var artigoIndividual = NamedIndividuals.Instance.Artigos[artigoIri];
                 IOntologyRelation publicadoEmRelation = new OntologyRelation(artigoIndividual, OntologyRelationType.PublicadoEm, eventoIndividual);
-                //IOntologyRelation localizadoRelation = TODO ??? 
+
+                var pais = GetPais(conf);
+                IOntologyRelation localizadoRelation = new OntologyRelation(eventoIndividual, OntologyRelationType.Localizado, pais);
 
                 AddRelation(publicadoEmRelation);
-                //AddRelation(localizadoRelation); TODO ??? 
+                AddRelation(localizadoRelation);
             }
         }
 
@@ -238,10 +245,15 @@ namespace OwlImport
                 IOntologyRelation autorRelation = new OntologyRelation(pesquisadorIndividual, OntologyRelationType.Autor, artigoIndividual);
                 AddRelation(autorRelation);
 
-                string revista_iri = OwlHelper.ToIRI(artigo["revista"].InnerText);
+                string revista = artigo["revista"].InnerText;
+                string revista_iri = OwlHelper.ToIRI(revista);
                 var revistaIndividual = NamedIndividuals.Instance.Revistas[revista_iri];
                 IOntologyRelation publicadoEmRelation = new OntologyRelation(artigoIndividual, OntologyRelationType.PublicadoEm, revistaIndividual);
                 AddRelation(publicadoEmRelation);
+
+                var pais = GetPais(revista);
+                IOntologyRelation localizadoRelation = new OntologyRelation(revistaIndividual, OntologyRelationType.Localizado, pais);
+                AddRelation(localizadoRelation);
             }
         }  
         
@@ -294,6 +306,39 @@ namespace OwlImport
             return universidade;
         }
 
+        private Universidade GetPais(XmlElement evento)
+        {            
+            Pais pais;
+            Universidade universidade;
+
+            string value = evento.InnerText;
+            string[] values = value.Split(new char[] { ',' });
+            string org = OwlHelper.ToIRI(values[0].Trim());
+
+            string paisIRI = OwlHelper.ToIRI(values[2].Trim());
+            pais = new Pais(paisIRI)
+            {
+                nome_completo = values[2]
+            };
+
+            if (org.Contains("universidade_de_sao_paulo"))
+            {
+                universidade = new Universidade("universidade_de_sao_paulo", pais)
+                {
+                    nome_completo = "Universidade de São Paulo"
+                };
+            }
+            else
+            {
+                universidade = new Universidade(org, pais)
+                {
+                    nome_completo = values[0]
+                };
+            }
+
+            return universidade;
+        }
+
         private void CheckCurso(XmlElement xmlElement)
         {
             var curso = GetCurso(xmlElement);
@@ -316,6 +361,53 @@ namespace OwlImport
         private static void AddRelation(IOntologyRelation autorRelation)
         {
             NamedIndividuals.Instance.Relations.Add(autorRelation);
+        }
+
+        private static void CheckPais(string titulo)
+        {
+            Pais pais = GetPais(titulo);
+            if (!NamedIndividuals.Instance.Paises.ContainsKey(pais.IRI))
+            {
+                NamedIndividuals.Instance.Paises.Add(pais.IRI, pais);
+            }
+
+        }
+        
+        /// <summary>
+        /// A dirty hack.
+        /// </summary>
+        /// <param name="titulo">Conference/Symposium or Journal Title</param>
+        /// <returns></returns>
+        private static Pais GetPais(string titulo)
+        {
+            string title = titulo.ToLowerInvariant();
+            if (title.Contains("brazil") || title.Contains("brasil") || title.Contains("revista") || title.Contains("simpósio") || title.Contains("conferência"))
+            {
+                string IRI = OwlHelper.ToIRI("brasil");
+                return new Pais(IRI){
+                    nome_completo = "Brasil"
+                };
+            }
+            else if (title.Contains("orlando") || title.Contains("wiscosin"))
+            {
+                string IRI = OwlHelper.ToIRI("estados unidos");
+                return new Pais(IRI)
+                {
+                    nome_completo = "Estados Unidos"
+                };
+            }
+            else if (title.Contains("oxford"))
+            {
+                string IRI = OwlHelper.ToIRI("inglaterra");
+                return new Pais(IRI)
+                {
+                    nome_completo = "Estados Unidos"
+                };
+            }
+
+            return new Pais("indefinido"){
+                    nome_completo = "país indefinido"
+            };
         }
 
     }
