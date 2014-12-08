@@ -27,7 +27,6 @@ namespace OwlImport.Core
         public string GetOWLDataProperties(string iri)
         {
             return OwlHelper.DataPropertyAssertion_String("nome_completo", iri, this.nome_completo);
-
         }
 
     }

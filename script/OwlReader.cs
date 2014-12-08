@@ -151,11 +151,13 @@ namespace OwlImport
                 var pesquisadorIndividual = NamedIndividuals.Instance.Profs[pesquisadorId];
 
                 CheckAcademicHistory(pesquisador, pesquisadorIndividual);
-                CheckWorkHistory(pesquisador, pesquisadorIndividual);
-                CheckJournalsPublications(pesquisador, pesquisadorIndividual);
+                CheckStudents(pesquisador, pesquisadorIndividual);
+                CheckWorkHistory(pesquisador, pesquisadorIndividual);                
                 CheckEventsPublications(pesquisador);
+                CheckJournalsPublications(pesquisador, pesquisadorIndividual);
             }
-        }           
+        }
+                   
 
         private void CheckAcademicHistory(XmlNode pesquisador, IOntologyIndividual pesquisadorIndividual)
         {
@@ -179,6 +181,45 @@ namespace OwlImport
                 AddRelation(localizadoRelation);
             }
         }
+
+        private void CheckStudents(XmlNode pesquisador, IOntologyIndividual pesquisadorIndividual)
+        {
+            XmlNodeList nodesMestrado = pesquisador.SelectNodes("orientacao_mestrado_concluido/dissertacao/nome_aluno");
+            XmlNodeList nodesDoutorado = pesquisador.SelectNodes("orientacao_doutorado_concluido/tese/nome_aluno");
+            
+            var univ = NamedIndividuals.Instance.Universidades[OwlHelper.ToIRI("universidade de são paulo")]; //TODO mudar
+
+            foreach (XmlNode aluno in nodesMestrado)
+            {
+                string nomeAluno = aluno.InnerText;
+                IOntologyIndividual alunoIndividual = new Aluno(OwlHelper.ToIRI(nomeAluno), nomeAluno);
+                if (!NamedIndividuals.Instance.Alunos.ContainsKey(alunoIndividual.IRI))
+                {
+                    NamedIndividuals.Instance.Alunos.Add(alunoIndividual.IRI, alunoIndividual);
+                }
+                IOntologyRelation relation = new OntologyRelation(pesquisadorIndividual, OntologyRelationType.Orienta, alunoIndividual);
+                IOntologyRelation estudouEmRelation = new OntologyRelation(alunoIndividual, OntologyRelationType.EstudouEm, univ);
+
+
+                AddRelation(relation);
+                AddRelation(estudouEmRelation);
+            }
+
+            foreach (XmlNode aluno in nodesDoutorado)
+            {
+                string nomeAluno = aluno.InnerText;
+                IOntologyIndividual alunoIndividual = new Aluno(OwlHelper.ToIRI(nomeAluno), nomeAluno);                
+                if (!NamedIndividuals.Instance.Alunos.ContainsKey(alunoIndividual.IRI))
+                {
+                    NamedIndividuals.Instance.Alunos.Add(alunoIndividual.IRI, alunoIndividual);
+                }
+                IOntologyRelation relation = new OntologyRelation(pesquisadorIndividual, OntologyRelationType.Orienta, alunoIndividual);
+                IOntologyRelation estudouEmRelation = new OntologyRelation(alunoIndividual, OntologyRelationType.EstudouEm, univ);
+
+                AddRelation(relation);
+                AddRelation(estudouEmRelation);
+            }
+        }      
 
         private void CheckWorkHistory(XmlNode pesquisador, IOntologyIndividual pesquisadorIndividual)
         {

@@ -23,6 +23,7 @@ namespace OwlImport
         }
 
         public Dictionary<string, IOntologyIndividual> Profs { get; set; }
+        public Dictionary<string, IOntologyIndividual> Alunos { get; set; }
         public Dictionary<string, IOntologyIndividual> Cursos { get; set; }
         public Dictionary<string, IOntologyIndividual> Paises { get; set; }
         public Dictionary<string, IOntologyIndividual> Universidades { get; set; }
@@ -36,6 +37,7 @@ namespace OwlImport
         private NamedIndividuals()
         {
             this.Profs = new Dictionary<string, IOntologyIndividual>();
+            this.Alunos = new Dictionary<string, IOntologyIndividual>();
             this.Cursos = new Dictionary<string, IOntologyIndividual>();
             this.Paises = new Dictionary<string, IOntologyIndividual>();
             this.Universidades = new Dictionary<string, IOntologyIndividual>();
@@ -136,6 +138,7 @@ namespace OwlImport
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(GenerateDeclaration(NamedIndividuals.Instance.Profs));
+            sb.AppendLine(GenerateDeclaration(NamedIndividuals.Instance.Alunos));
             sb.AppendLine(GenerateDeclaration(NamedIndividuals.Instance.Cursos));
             sb.AppendLine(GenerateDeclaration(NamedIndividuals.Instance.Paises));
             sb.AppendLine(GenerateDeclaration(NamedIndividuals.Instance.Universidades));
@@ -151,6 +154,7 @@ namespace OwlImport
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(GenerateClassAssertion("Professor", NamedIndividuals.Instance.Profs));
+            sb.AppendLine(GenerateClassAssertion("Aluno", NamedIndividuals.Instance.Alunos));
             sb.AppendLine(GenerateClassAssertion("Curso", NamedIndividuals.Instance.Cursos));
             sb.AppendLine(GenerateClassAssertion("Pais", NamedIndividuals.Instance.Paises));
             sb.AppendLine(GenerateClassAssertion("Universidade", NamedIndividuals.Instance.Universidades));
@@ -166,6 +170,7 @@ namespace OwlImport
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(GenerateDataPropertyAssertions(NamedIndividuals.Instance.Profs));
+            sb.AppendLine(GenerateDataPropertyAssertions(NamedIndividuals.Instance.Alunos));
             sb.AppendLine(GenerateDataPropertyAssertions(NamedIndividuals.Instance.Cursos));
             sb.AppendLine(GenerateDataPropertyAssertions(NamedIndividuals.Instance.Paises));
             sb.AppendLine(GenerateDataPropertyAssertions(NamedIndividuals.Instance.Universidades));
