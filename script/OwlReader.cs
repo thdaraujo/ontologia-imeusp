@@ -147,10 +147,11 @@ namespace OwlImport
                 var pesquisadorIndividual = NamedIndividuals.Instance.Profs[pesquisadorId];
 
                 CheckAcademicHistory(pesquisador, pesquisadorIndividual);
+                CheckWorkHistory(pesquisador, pesquisadorIndividual);
                 CheckJournalsPublications(pesquisador, pesquisadorIndividual);
                 CheckEventsPublications(pesquisador);
             }
-        }      
+        }           
 
         private void CheckAcademicHistory(XmlNode pesquisador, IOntologyIndividual pesquisadorIndividual)
         {
@@ -175,6 +176,75 @@ namespace OwlImport
             }
         }
 
+        private void CheckWorkHistory(XmlNode pesquisador, IOntologyIndividual pesquisadorIndividual)
+        {
+            var trabalhoNode = pesquisador.SelectSingleNode("endereco/endereco_profissional");            
+            if(trabalhoNode == null) return;
+
+            var trabalho = trabalhoNode.InnerText;
+            if (string.IsNullOrEmpty(trabalho)) return;
+
+            var info = trabalho
+                .Split(',')
+                .FirstOrDefault();
+            var universidade = OwlHelper.ToIRI(info);
+
+            if (NamedIndividuals.Instance.Universidades.ContainsKey(universidade))
+            {
+                var universidadeIndividual = NamedIndividuals.Instance.Universidades[OwlHelper.ToIRI(info)];
+                IOntologyRelation trabalhouEmRelation = new OntologyRelation(pesquisadorIndividual, OntologyRelationType.TrabalhouEm, universidadeIndividual);
+                AddRelation(trabalhouEmRelation);
+            }
+        }
+
+        private static void CheckEventsPublications(XmlNode pesquisador)
+        {
+            foreach (XmlNode trabalhoCongresso in pesquisador["trabalho_completo_congresso"].SelectNodes("trabalho_completo"))
+            {
+                string conf_iri = OwlHelper.ToIRI(trabalhoCongresso["nome_evento"].InnerText);
+                string artigoIri = OwlHelper.ToIRI(trabalhoCongresso["titulo"].InnerText);
+
+                IOntologyIndividual eventoIndividual = null;
+
+                if (NamedIndividuals.Instance.Conferencias.ContainsKey(conf_iri))
+                {
+                    eventoIndividual = NamedIndividuals.Instance.Conferencias[conf_iri];
+                }
+                else if (NamedIndividuals.Instance.Simposios.ContainsKey(conf_iri))
+                {
+                    eventoIndividual = NamedIndividuals.Instance.Simposios[conf_iri];
+                }
+                else
+                {
+                    continue;
+                }
+
+                var artigoIndividual = NamedIndividuals.Instance.Artigos[artigoIri];
+                IOntologyRelation publicadoEmRelation = new OntologyRelation(artigoIndividual, OntologyRelationType.PublicadoEm, eventoIndividual);
+                //IOntologyRelation localizadoRelation = TODO ??? 
+
+                AddRelation(publicadoEmRelation);
+                //AddRelation(localizadoRelation); TODO ??? 
+            }
+        }
+
+        private static void CheckJournalsPublications(XmlNode pesquisador, IOntologyIndividual pesquisadorIndividual)
+        {
+            foreach (XmlNode artigo in pesquisador["artigos_em_periodicos"].SelectNodes("artigo"))
+            {
+                string artigo_iri = OwlHelper.ToIRI(artigo["titulo"].InnerText);
+                IOntologyIndividual artigoIndividual = NamedIndividuals.Instance.Artigos[artigo_iri];
+
+                IOntologyRelation autorRelation = new OntologyRelation(pesquisadorIndividual, OntologyRelationType.Autor, artigoIndividual);
+                AddRelation(autorRelation);
+
+                string revista_iri = OwlHelper.ToIRI(artigo["revista"].InnerText);
+                var revistaIndividual = NamedIndividuals.Instance.Revistas[revista_iri];
+                IOntologyRelation publicadoEmRelation = new OntologyRelation(artigoIndividual, OntologyRelationType.PublicadoEm, revistaIndividual);
+                AddRelation(publicadoEmRelation);
+            }
+        }  
+        
         private void CheckUniversidadePais(XmlElement xmlElement)
         {
             Universidade universidade = GetUniversidadePais(xmlElement);
@@ -242,54 +312,6 @@ namespace OwlImport
                 titulo = xmlElement.InnerText
             };
         }
-
-        private static void CheckEventsPublications(XmlNode pesquisador)
-        {
-            foreach (XmlNode trabalhoCongresso in pesquisador["trabalho_completo_congresso"].SelectNodes("trabalho_completo"))
-            {
-                string conf_iri = OwlHelper.ToIRI(trabalhoCongresso["nome_evento"].InnerText);
-                string artigoIri = OwlHelper.ToIRI(trabalhoCongresso["titulo"].InnerText);
-
-                IOntologyIndividual eventoIndividual = null;
-
-                if (NamedIndividuals.Instance.Conferencias.ContainsKey(conf_iri))
-                {
-                    eventoIndividual = NamedIndividuals.Instance.Conferencias[conf_iri];
-                }
-                else if (NamedIndividuals.Instance.Simposios.ContainsKey(conf_iri))
-                {
-                    eventoIndividual = NamedIndividuals.Instance.Simposios[conf_iri];
-                }
-                else
-                {
-                    continue;
-                }
-
-                var artigoIndividual = NamedIndividuals.Instance.Artigos[artigoIri];
-                IOntologyRelation publicadoEmRelation = new OntologyRelation(artigoIndividual, OntologyRelationType.PublicadoEm, eventoIndividual);
-                //IOntologyRelation localizadoRelation = TODO ??? 
-
-                AddRelation(publicadoEmRelation);
-                //AddRelation(localizadoRelation); TODO ??? 
-            }
-        }
-
-        private static void CheckJournalsPublications(XmlNode pesquisador, IOntologyIndividual pesquisadorIndividual)
-        {
-            foreach (XmlNode artigo in pesquisador["artigos_em_periodicos"].SelectNodes("artigo"))
-            {
-                string artigo_iri = OwlHelper.ToIRI(artigo["titulo"].InnerText);
-                IOntologyIndividual artigoIndividual = NamedIndividuals.Instance.Artigos[artigo_iri];                   
-
-                IOntologyRelation autorRelation = new OntologyRelation(pesquisadorIndividual, OntologyRelationType.Autor, artigoIndividual);
-                AddRelation(autorRelation);
-                    
-                string revista_iri = OwlHelper.ToIRI(artigo["revista"].InnerText);                
-                var revistaIndividual = NamedIndividuals.Instance.Revistas[revista_iri];                    
-                IOntologyRelation publicadoEmRelation = new OntologyRelation(artigoIndividual, OntologyRelationType.PublicadoEm, revistaIndividual);
-                AddRelation(publicadoEmRelation);
-            }
-        }  
 
         private static void AddRelation(IOntologyRelation autorRelation)
         {
